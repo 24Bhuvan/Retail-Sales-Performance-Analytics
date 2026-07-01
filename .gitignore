@@ -1,1 +1,133 @@
+# Python
 
+__pycache__/
+*.py[cod]
+*$py.class
+
+.venv/
+venv/
+env/
+ENV/
+
+build/
+dist/
+.eggs/
+*.egg-info/
+
+.ipynb_checkpoints/
+
+.pytest_cache/
+.coverage
+htmlcov/
+
+.mypy_cache/
+.pyre/
+.pytype/
+
+
+
+# IDEs
+
+.vscode/
+.idea/
+
+
+
+# Operating System
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+
+
+# Logs
+
+*.log
+logs/
+
+
+
+# Environment Variables
+
+.env
+.env.*
+!.env.example
+
+
+
+# Temporary Files
+
+*.tmp
+*.temp
+*.bak
+*.swp
+
+
+
+# Data
+
+# Raw datasets (exclude if repository is public)
+data/raw/*
+!data/raw/README.md
+
+# Intermediate data
+data/interim/*
+
+# Cleaned data
+data/cleaned/*
+
+# Processed data
+data/processed/*
+!data/processed/README.md
+
+
+
+# Power BI
+
+*.pbix.autosave
+*.pbix.tmp
+*.pbitmp
+
+powerbi/*.cache
+
+
+
+# Excel
+
+~$*.xlsx
+~$*.xls
+
+
+
+# Reports
+
+reports/*.pdf
+
+
+
+# Generated Images
+
+images/profiling/*
+images/eda/*
+images/statistics/*
+images/sql/*
+images/powerbi/*
+images/dashboard/*
+
+
+
+# Documentation Output
+
+docs/*.pdf
+docs/*.pptx
+
+
+
+# Archives
+
+*.zip
+*.7z
+*.rar
+*.tar
+*.gz
