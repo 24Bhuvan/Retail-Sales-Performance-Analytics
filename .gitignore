@@ -1,0 +1,116 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDEs
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.history/
+
+# Environment variables
+.env
+.env.*
+*.env
+.python-version
+
+# Logs
+logs/
+*.log
+
+# Cache
+.cache/
+.pytest_cache/
+.mypy_cache/
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+*.bak
+*.swp
+
+# Power BI
+*.pbix.autosave
+*.pbix.tmp
+*.pbit.tmp
+
+# Ignore dataset contents (keep folders)
+data/raw/*
+!data/raw/.gitkeep
+
+data/interim/*
+!data/interim/.gitkeep
+
+data/cleaned/*
+!data/cleaned/.gitkeep
+
+data/processed/*
+!data/processed/.gitkeep
+
+# Generated reports
+reports/final_report/*
+!reports/final_report/.gitkeep
+
+reports/executive_summary/*
+!reports/executive_summary/.gitkeep
+
+# Generated assets
+assets/images/generated/
+diagrams/generated/
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Archives
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+
+# Secrets
+config.json
+credentials.json
+service_account.json
+secrets.json
+
+# Coverage
+.coverage
+coverage.xml
+htmlcov/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+.AppleDouble
+.LSOverride
+ehthumbs.db
+Icon?
+
+# Misc
+*.pid
+*.seed
+*.orig
