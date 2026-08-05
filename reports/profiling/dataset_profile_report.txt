@@ -1,0 +1,463 @@
+================================================================================
+DATASET PROFILE REPORT
+================================================================================
+
+Dataset : olist_customers_dataset.csv
+--------------------------------------------------------------------------------
+Basic Information
+Rows                : 99,441
+Columns             : 5
+Duplicate Rows      : 0
+Memory Usage (MB)   : 26.59
+
+Column Summary
+                         Data Type  Missing  Missing %  Unique Values
+customer_id                    str        0        0.0          99441
+customer_unique_id             str        0        0.0          96096
+customer_zip_code_prefix     int64        0        0.0          14994
+customer_city                  str        0        0.0           4119
+customer_state                 str        0        0.0             27
+
+Columns
+• customer_id
+• customer_unique_id
+• customer_zip_code_prefix
+• customer_city
+• customer_state
+
+DataFrame Info
+<class 'pandas.DataFrame'>
+RangeIndex: 99441 entries, 0 to 99440
+Data columns (total 5 columns):
+ #   Column                    Non-Null Count  Dtype
+---  ------                    --------------  -----
+ 0   customer_id               99441 non-null  str  
+ 1   customer_unique_id        99441 non-null  str  
+ 2   customer_zip_code_prefix  99441 non-null  int64
+ 3   customer_city             99441 non-null  str  
+ 4   customer_state            99441 non-null  str  
+dtypes: int64(1), str(4)
+memory usage: 3.8 MB
+
+
+Descriptive Statistics
+                            count unique                               top   freq          mean           std     min      25%      50%      75%      max
+customer_id                 99441  99441  06b8999e2fba1a1fbc88172c00ba8bc7      1           NaN           NaN     NaN      NaN      NaN      NaN      NaN
+customer_unique_id          99441  96096  8d50f5eadf50201ccdcedfb9e2ac8455     17           NaN           NaN     NaN      NaN      NaN      NaN      NaN
+customer_zip_code_prefix  99441.0    NaN                               NaN    NaN  35137.474583  29797.938996  1003.0  11347.0  24416.0  58900.0  99990.0
+customer_city               99441   4119                         sao paulo  15540           NaN           NaN     NaN      NaN      NaN      NaN      NaN
+customer_state              99441     27                                SP  41746           NaN           NaN     NaN      NaN      NaN      NaN      NaN
+
+================================================================================
+
+Dataset : olist_geolocation_dataset.csv
+--------------------------------------------------------------------------------
+Basic Information
+Rows                : 1,000,163
+Columns             : 5
+Duplicate Rows      : 261,831
+Memory Usage (MB)   : 130.26
+
+Column Summary
+                            Data Type  Missing  Missing %  Unique Values
+geolocation_zip_code_prefix     int64        0        0.0          19015
+geolocation_lat               float64        0        0.0         717360
+geolocation_lng               float64        0        0.0         717613
+geolocation_city                  str        0        0.0           8011
+geolocation_state                 str        0        0.0             27
+
+Columns
+• geolocation_zip_code_prefix
+• geolocation_lat
+• geolocation_lng
+• geolocation_city
+• geolocation_state
+
+DataFrame Info
+<class 'pandas.DataFrame'>
+RangeIndex: 1000163 entries, 0 to 1000162
+Data columns (total 5 columns):
+ #   Column                       Non-Null Count    Dtype  
+---  ------                       --------------    -----  
+ 0   geolocation_zip_code_prefix  1000163 non-null  int64  
+ 1   geolocation_lat              1000163 non-null  float64
+ 2   geolocation_lng              1000163 non-null  float64
+ 3   geolocation_city             1000163 non-null  str    
+ 4   geolocation_state            1000163 non-null  str    
+dtypes: float64(2), int64(1), str(2)
+memory usage: 38.2 MB
+
+
+Descriptive Statistics
+                                 count unique        top    freq          mean          std         min        25%        50%        75%         max
+geolocation_zip_code_prefix  1000163.0    NaN        NaN     NaN  36574.166466  30549.33571      1001.0    11075.0    26530.0    63504.0     99990.0
+geolocation_lat              1000163.0    NaN        NaN     NaN    -21.176153     5.715866  -36.605374 -23.603546 -22.919377  -19.97962   45.065933
+geolocation_lng              1000163.0    NaN        NaN     NaN    -46.390541     4.269748 -101.466766 -48.573172 -46.637879 -43.767709  121.105394
+geolocation_city               1000163   8011  sao paulo  135800           NaN          NaN         NaN        NaN        NaN        NaN         NaN
+geolocation_state              1000163     27         SP  404268           NaN          NaN         NaN        NaN        NaN        NaN         NaN
+
+================================================================================
+
+Dataset : olist_order_items_dataset.csv
+--------------------------------------------------------------------------------
+Basic Information
+Rows                : 112,650
+Columns             : 7
+Duplicate Rows      : 0
+Memory Usage (MB)   : 35.99
+
+Column Summary
+                    Data Type  Missing  Missing %  Unique Values
+order_id                  str        0        0.0          98666
+order_item_id           int64        0        0.0             21
+product_id                str        0        0.0          32951
+seller_id                 str        0        0.0           3095
+shipping_limit_date       str        0        0.0          93318
+price                 float64        0        0.0           5968
+freight_value         float64        0        0.0           6999
+
+Columns
+• order_id
+• order_item_id
+• product_id
+• seller_id
+• shipping_limit_date
+• price
+• freight_value
+
+DataFrame Info
+<class 'pandas.DataFrame'>
+RangeIndex: 112650 entries, 0 to 112649
+Data columns (total 7 columns):
+ #   Column               Non-Null Count   Dtype  
+---  ------               --------------   -----  
+ 0   order_id             112650 non-null  str    
+ 1   order_item_id        112650 non-null  int64  
+ 2   product_id           112650 non-null  str    
+ 3   seller_id            112650 non-null  str    
+ 4   shipping_limit_date  112650 non-null  str    
+ 5   price                112650 non-null  float64
+ 6   freight_value        112650 non-null  float64
+dtypes: float64(2), int64(1), str(4)
+memory usage: 6.0 MB
+
+
+Descriptive Statistics
+                        count unique                               top  freq        mean         std   min    25%    50%    75%     max
+order_id               112650  98666  8272b63d03f5f79c56e9e4120aec44ef    21         NaN         NaN   NaN    NaN    NaN    NaN     NaN
+order_item_id        112650.0    NaN                               NaN   NaN    1.197834    0.705124   1.0    1.0    1.0    1.0    21.0
+product_id             112650  32951  aca2eb7d00ea1a7b8ebd4e68314663af   527         NaN         NaN   NaN    NaN    NaN    NaN     NaN
+seller_id              112650   3095  6560211a19b47992c3666cc44a7e94c0  2033         NaN         NaN   NaN    NaN    NaN    NaN     NaN
+shipping_limit_date    112650  93318               2018-03-01 02:50:48    21         NaN         NaN   NaN    NaN    NaN    NaN     NaN
+price                112650.0    NaN                               NaN   NaN  120.653739  183.633928  0.85   39.9  74.99  134.9  6735.0
+freight_value        112650.0    NaN                               NaN   NaN    19.99032   15.806405   0.0  13.08  16.26  21.15  409.68
+
+================================================================================
+
+Dataset : olist_order_payments_dataset.csv
+--------------------------------------------------------------------------------
+Basic Information
+Rows                : 103,886
+Columns             : 5
+Duplicate Rows      : 0
+Memory Usage (MB)   : 16.23
+
+Column Summary
+                     Data Type  Missing  Missing %  Unique Values
+order_id                   str        0        0.0          99440
+payment_sequential       int64        0        0.0             29
+payment_type               str        0        0.0              5
+payment_installments     int64        0        0.0             24
+payment_value          float64        0        0.0          29077
+
+Columns
+• order_id
+• payment_sequential
+• payment_type
+• payment_installments
+• payment_value
+
+DataFrame Info
+<class 'pandas.DataFrame'>
+RangeIndex: 103886 entries, 0 to 103885
+Data columns (total 5 columns):
+ #   Column                Non-Null Count   Dtype  
+---  ------                --------------   -----  
+ 0   order_id              103886 non-null  str    
+ 1   payment_sequential    103886 non-null  int64  
+ 2   payment_type          103886 non-null  str    
+ 3   payment_installments  103886 non-null  int64  
+ 4   payment_value         103886 non-null  float64
+dtypes: float64(1), int64(2), str(2)
+memory usage: 4.0 MB
+
+
+Descriptive Statistics
+                         count unique                               top   freq       mean         std  min    25%    50%       75%       max
+order_id                103886  99440  fa65dad1b0e818e3ccc5cb0e39231352     29        NaN         NaN  NaN    NaN    NaN       NaN       NaN
+payment_sequential    103886.0    NaN                               NaN    NaN   1.092679    0.706584  1.0    1.0    1.0       1.0      29.0
+payment_type            103886      5                       credit_card  76795        NaN         NaN  NaN    NaN    NaN       NaN       NaN
+payment_installments  103886.0    NaN                               NaN    NaN   2.853349    2.687051  0.0    1.0    1.0       4.0      24.0
+payment_value         103886.0    NaN                               NaN    NaN  154.10038  217.494064  0.0  56.79  100.0  171.8375  13664.08
+
+================================================================================
+
+Dataset : olist_order_reviews_dataset.csv
+--------------------------------------------------------------------------------
+Basic Information
+Rows                : 99,224
+Columns             : 7
+Duplicate Rows      : 0
+Memory Usage (MB)   : 39.12
+
+Column Summary
+                        Data Type  Missing  Missing %  Unique Values
+review_id                     str        0       0.00          98410
+order_id                      str        0       0.00          98673
+review_score                int64        0       0.00              5
+review_comment_title          str    87656      88.34           4527
+review_comment_message        str    58247      58.70          36159
+review_creation_date          str        0       0.00            636
+review_answer_timestamp       str        0       0.00          98248
+
+Columns
+• review_id
+• order_id
+• review_score
+• review_comment_title
+• review_comment_message
+• review_creation_date
+• review_answer_timestamp
+
+DataFrame Info
+<class 'pandas.DataFrame'>
+RangeIndex: 99224 entries, 0 to 99223
+Data columns (total 7 columns):
+ #   Column                   Non-Null Count  Dtype
+---  ------                   --------------  -----
+ 0   review_id                99224 non-null  str  
+ 1   order_id                 99224 non-null  str  
+ 2   review_score             99224 non-null  int64
+ 3   review_comment_title     11568 non-null  str  
+ 4   review_comment_message   40977 non-null  str  
+ 5   review_creation_date     99224 non-null  str  
+ 6   review_answer_timestamp  99224 non-null  str  
+dtypes: int64(1), str(6)
+memory usage: 5.3 MB
+
+
+Descriptive Statistics
+                           count unique                               top freq      mean       std  min  25%  50%  75%  max
+review_id                  99224  98410  c444278834184f72b1484dfe47de7f97    3       NaN       NaN  NaN  NaN  NaN  NaN  NaN
+order_id                   99224  98673  c88b1d1b157a9999ce368f218a407141    3       NaN       NaN  NaN  NaN  NaN  NaN  NaN
+review_score             99224.0    NaN                               NaN  NaN  4.086421  1.347579  1.0  4.0  5.0  5.0  5.0
+review_comment_title       11568   4527                         Recomendo  423       NaN       NaN  NaN  NaN  NaN  NaN  NaN
+review_comment_message     40977  36159                         Muito bom  230       NaN       NaN  NaN  NaN  NaN  NaN  NaN
+review_creation_date       99224    636               2017-12-19 00:00:00  463       NaN       NaN  NaN  NaN  NaN  NaN  NaN
+review_answer_timestamp    99224  98248               2017-06-15 23:21:05    4       NaN       NaN  NaN  NaN  NaN  NaN  NaN
+
+================================================================================
+
+Dataset : olist_orders_dataset.csv
+--------------------------------------------------------------------------------
+Basic Information
+Rows                : 99,441
+Columns             : 8
+Duplicate Rows      : 0
+Memory Usage (MB)   : 52.94
+
+Column Summary
+                              Data Type  Missing  Missing %  Unique Values
+order_id                            str        0       0.00          99441
+customer_id                         str        0       0.00          99441
+order_status                        str        0       0.00              8
+order_purchase_timestamp            str        0       0.00          98875
+order_approved_at                   str      160       0.16          90733
+order_delivered_carrier_date        str     1783       1.79          81018
+order_delivered_customer_date       str     2965       2.98          95664
+order_estimated_delivery_date       str        0       0.00            459
+
+Columns
+• order_id
+• customer_id
+• order_status
+• order_purchase_timestamp
+• order_approved_at
+• order_delivered_carrier_date
+• order_delivered_customer_date
+• order_estimated_delivery_date
+
+DataFrame Info
+<class 'pandas.DataFrame'>
+RangeIndex: 99441 entries, 0 to 99440
+Data columns (total 8 columns):
+ #   Column                         Non-Null Count  Dtype
+---  ------                         --------------  -----
+ 0   order_id                       99441 non-null  str  
+ 1   customer_id                    99441 non-null  str  
+ 2   order_status                   99441 non-null  str  
+ 3   order_purchase_timestamp       99441 non-null  str  
+ 4   order_approved_at              99281 non-null  str  
+ 5   order_delivered_carrier_date   97658 non-null  str  
+ 6   order_delivered_customer_date  96476 non-null  str  
+ 7   order_estimated_delivery_date  99441 non-null  str  
+dtypes: str(8)
+memory usage: 6.1 MB
+
+
+Descriptive Statistics
+                               count unique                               top   freq
+order_id                       99441  99441  e481f51cbdc54678b7cc49136f2d6af7      1
+customer_id                    99441  99441  9ef432eb6251297304e76186b10a928d      1
+order_status                   99441      8                         delivered  96478
+order_purchase_timestamp       99441  98875               2018-03-31 15:08:21      3
+order_approved_at              99281  90733               2018-02-27 04:31:10      9
+order_delivered_carrier_date   97658  81018               2018-05-09 15:48:00     47
+order_delivered_customer_date  96476  95664               2018-05-14 20:02:44      3
+order_estimated_delivery_date  99441    459               2017-12-20 00:00:00    522
+
+================================================================================
+
+Dataset : olist_products_dataset.csv
+--------------------------------------------------------------------------------
+Basic Information
+Rows                : 32,951
+Columns             : 9
+Duplicate Rows      : 0
+Memory Usage (MB)   : 6.30
+
+Column Summary
+                           Data Type  Missing  Missing %  Unique Values
+product_id                       str        0       0.00          32951
+product_category_name            str      610       1.85             73
+product_name_lenght          float64      610       1.85             66
+product_description_lenght   float64      610       1.85           2960
+product_photos_qty           float64      610       1.85             19
+product_weight_g             float64        2       0.01           2204
+product_length_cm            float64        2       0.01             99
+product_height_cm            float64        2       0.01            102
+product_width_cm             float64        2       0.01             95
+
+Columns
+• product_id
+• product_category_name
+• product_name_lenght
+• product_description_lenght
+• product_photos_qty
+• product_weight_g
+• product_length_cm
+• product_height_cm
+• product_width_cm
+
+DataFrame Info
+<class 'pandas.DataFrame'>
+RangeIndex: 32951 entries, 0 to 32950
+Data columns (total 9 columns):
+ #   Column                      Non-Null Count  Dtype  
+---  ------                      --------------  -----  
+ 0   product_id                  32951 non-null  str    
+ 1   product_category_name       32341 non-null  str    
+ 2   product_name_lenght         32341 non-null  float64
+ 3   product_description_lenght  32341 non-null  float64
+ 4   product_photos_qty          32341 non-null  float64
+ 5   product_weight_g            32949 non-null  float64
+ 6   product_length_cm           32949 non-null  float64
+ 7   product_height_cm           32949 non-null  float64
+ 8   product_width_cm            32949 non-null  float64
+dtypes: float64(7), str(2)
+memory usage: 2.3 MB
+
+
+Descriptive Statistics
+                              count unique                               top  freq         mean          std  min    25%    50%     75%      max
+product_id                    32951  32951  1e9e8ef04dbcff4541ed26657ea517e5     1          NaN          NaN  NaN    NaN    NaN     NaN      NaN
+product_category_name         32341     73                   cama_mesa_banho  3029          NaN          NaN  NaN    NaN    NaN     NaN      NaN
+product_name_lenght         32341.0    NaN                               NaN   NaN    48.476949    10.245741  5.0   42.0   51.0    57.0     76.0
+product_description_lenght  32341.0    NaN                               NaN   NaN   771.495285   635.115225  4.0  339.0  595.0   972.0   3992.0
+product_photos_qty          32341.0    NaN                               NaN   NaN     2.188986     1.736766  1.0    1.0    1.0     3.0     20.0
+product_weight_g            32949.0    NaN                               NaN   NaN  2276.472488  4282.038731  0.0  300.0  700.0  1900.0  40425.0
+product_length_cm           32949.0    NaN                               NaN   NaN    30.815078    16.914458  7.0   18.0   25.0    38.0    105.0
+product_height_cm           32949.0    NaN                               NaN   NaN    16.937661    13.637554  2.0    8.0   13.0    21.0    105.0
+product_width_cm            32949.0    NaN                               NaN   NaN    23.196728    12.079047  6.0   15.0   20.0    30.0    118.0
+
+================================================================================
+
+Dataset : olist_sellers_dataset.csv
+--------------------------------------------------------------------------------
+Basic Information
+Rows                : 3,095
+Columns             : 4
+Duplicate Rows      : 0
+Memory Usage (MB)   : 0.59
+
+Column Summary
+                       Data Type  Missing  Missing %  Unique Values
+seller_id                    str        0        0.0           3095
+seller_zip_code_prefix     int64        0        0.0           2246
+seller_city                  str        0        0.0            611
+seller_state                 str        0        0.0             23
+
+Columns
+• seller_id
+• seller_zip_code_prefix
+• seller_city
+• seller_state
+
+DataFrame Info
+<class 'pandas.DataFrame'>
+RangeIndex: 3095 entries, 0 to 3094
+Data columns (total 4 columns):
+ #   Column                  Non-Null Count  Dtype
+---  ------                  --------------  -----
+ 0   seller_id               3095 non-null   str  
+ 1   seller_zip_code_prefix  3095 non-null   int64
+ 2   seller_city             3095 non-null   str  
+ 3   seller_state            3095 non-null   str  
+dtypes: int64(1), str(3)
+memory usage: 96.8 KB
+
+
+Descriptive Statistics
+                         count unique                               top  freq          mean          std     min     25%      50%      75%      max
+seller_id                 3095   3095  3442f8959a84dea7ee197c632cb2df15     1           NaN          NaN     NaN     NaN      NaN      NaN      NaN
+seller_zip_code_prefix  3095.0    NaN                               NaN   NaN  32291.059451  32713.45383  1001.0  7093.5  14940.0  64552.5  99730.0
+seller_city               3095    611                         sao paulo   694           NaN          NaN     NaN     NaN      NaN      NaN      NaN
+seller_state              3095     23                                SP  1849           NaN          NaN     NaN     NaN      NaN      NaN      NaN
+
+================================================================================
+
+Dataset : product_category_name_translation.csv
+--------------------------------------------------------------------------------
+Basic Information
+Rows                : 71
+Columns             : 2
+Duplicate Rows      : 0
+Memory Usage (MB)   : 0.01
+
+Column Summary
+                              Data Type  Missing  Missing %  Unique Values
+product_category_name               str        0        0.0             71
+product_category_name_english       str        0        0.0             71
+
+Columns
+• product_category_name
+• product_category_name_english
+
+DataFrame Info
+<class 'pandas.DataFrame'>
+RangeIndex: 71 entries, 0 to 70
+Data columns (total 2 columns):
+ #   Column                         Non-Null Count  Dtype
+---  ------                         --------------  -----
+ 0   product_category_name          71 non-null     str  
+ 1   product_category_name_english  71 non-null     str  
+dtypes: str(2)
+memory usage: 1.2 KB
+
+
+Descriptive Statistics
+                              count unique            top freq
+product_category_name            71     71   beleza_saude    1
+product_category_name_english    71     71  health_beauty    1
+
+================================================================================
