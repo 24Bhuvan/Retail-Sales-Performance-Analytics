@@ -1,0 +1,17 @@
+{
+    "phase": "Phase 4 \u2014 Data Quality Assessment",
+    "project": "Retail Sales Performance Analytics",
+    "raw_data_directory": "C:\\Users\\Bhuvan Ummidisetti\\Desktop\\Project 1\\Retail-Sales-Performance-Analytics\\data\\raw",
+    "output_directory": "C:\\Users\\Bhuvan Ummidisetti\\Desktop\\Project 1\\Retail-Sales-Performance-Analytics\\reports\\data_quality",
+    "raw_data_modified": false,
+    "datasets_expected": 9,
+    "datasets_loaded": 9,
+    "datasets_failed_to_load": 0,
+    "total_quality_tests": 202,
+    "passed_tests": 179,
+    "failed_tests": 23,
+    "critical_failures": 0,
+    "high_failures": 2,
+    "medium_failures": 15,
+    "low_failures": 6
+}

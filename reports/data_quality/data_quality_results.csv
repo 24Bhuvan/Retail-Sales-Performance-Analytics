@@ -1,0 +1,203 @@
+﻿TEST_ID,DATASET,COLUMN,QUALITY_DIMENSION,RULE,EXPECTED,ACTUAL,FAILED_COUNT,FAILURE_RATE,SEVERITY,STATUS
+DQ-EXIST-CUSTOMERS,customers,__DATASET__,Completeness,Expected raw dataset file must exist,Dataset exists,Dataset exists,0,0.0,NONE,PASS
+DQ-EXIST-GEOLOCATION,geolocation,__DATASET__,Completeness,Expected raw dataset file must exist,Dataset exists,Dataset exists,0,0.0,NONE,PASS
+DQ-EXIST-ORDERS,orders,__DATASET__,Completeness,Expected raw dataset file must exist,Dataset exists,Dataset exists,0,0.0,NONE,PASS
+DQ-EXIST-ORDER_ITEMS,order_items,__DATASET__,Completeness,Expected raw dataset file must exist,Dataset exists,Dataset exists,0,0.0,NONE,PASS
+DQ-EXIST-PAYMENTS,payments,__DATASET__,Completeness,Expected raw dataset file must exist,Dataset exists,Dataset exists,0,0.0,NONE,PASS
+DQ-EXIST-REVIEWS,reviews,__DATASET__,Completeness,Expected raw dataset file must exist,Dataset exists,Dataset exists,0,0.0,NONE,PASS
+DQ-EXIST-PRODUCTS,products,__DATASET__,Completeness,Expected raw dataset file must exist,Dataset exists,Dataset exists,0,0.0,NONE,PASS
+DQ-EXIST-SELLERS,sellers,__DATASET__,Completeness,Expected raw dataset file must exist,Dataset exists,Dataset exists,0,0.0,NONE,PASS
+DQ-EXIST-CATEGORY_TRANSLATION,category_translation,__DATASET__,Completeness,Expected raw dataset file must exist,Dataset exists,Dataset exists,0,0.0,NONE,PASS
+DQ-SCHEMA-CUSTOMERS,customers,__DATASET__,Conformity,Dataset schema must contain all expected columns,"Required columns=['customer_id', 'customer_unique_id', 'customer_zip_code_prefix', 'customer_city', 'customer_state']","rows=99441, columns=5, missing_columns=[], unexpected_columns=[]",0,0.0,NONE,PASS
+DQ-SCHEMA-GEOLOCATION,geolocation,__DATASET__,Conformity,Dataset schema must contain all expected columns,"Required columns=['geolocation_zip_code_prefix', 'geolocation_lat', 'geolocation_lng', 'geolocation_city', 'geolocation_state']","rows=1000163, columns=5, missing_columns=[], unexpected_columns=[]",0,0.0,NONE,PASS
+DQ-SCHEMA-ORDERS,orders,__DATASET__,Conformity,Dataset schema must contain all expected columns,"Required columns=['order_id', 'customer_id', 'order_status', 'order_purchase_timestamp', 'order_approved_at', 'order_delivered_carrier_date', 'order_delivered_customer_date', 'order_estimated_delivery_date']","rows=99441, columns=8, missing_columns=[], unexpected_columns=[]",0,0.0,NONE,PASS
+DQ-SCHEMA-ORDER_ITEMS,order_items,__DATASET__,Conformity,Dataset schema must contain all expected columns,"Required columns=['order_id', 'order_item_id', 'product_id', 'seller_id', 'shipping_limit_date', 'price', 'freight_value']","rows=112650, columns=7, missing_columns=[], unexpected_columns=[]",0,0.0,NONE,PASS
+DQ-SCHEMA-PAYMENTS,payments,__DATASET__,Conformity,Dataset schema must contain all expected columns,"Required columns=['order_id', 'payment_sequential', 'payment_type', 'payment_installments', 'payment_value']","rows=103886, columns=5, missing_columns=[], unexpected_columns=[]",0,0.0,NONE,PASS
+DQ-SCHEMA-REVIEWS,reviews,__DATASET__,Conformity,Dataset schema must contain all expected columns,"Required columns=['review_id', 'order_id', 'review_score', 'review_comment_title', 'review_comment_message', 'review_creation_date', 'review_answer_timestamp']","rows=99224, columns=7, missing_columns=[], unexpected_columns=[]",0,0.0,NONE,PASS
+DQ-SCHEMA-PRODUCTS,products,__DATASET__,Conformity,Dataset schema must contain all expected columns,"Required columns=['product_id', 'product_category_name', 'product_name_lenght', 'product_description_lenght', 'product_photos_qty', 'product_weight_g', 'product_length_cm', 'product_height_cm', 'product_width_cm']","rows=32951, columns=9, missing_columns=[], unexpected_columns=[]",0,0.0,NONE,PASS
+DQ-SCHEMA-SELLERS,sellers,__DATASET__,Conformity,Dataset schema must contain all expected columns,"Required columns=['seller_id', 'seller_zip_code_prefix', 'seller_city', 'seller_state']","rows=3095, columns=4, missing_columns=[], unexpected_columns=[]",0,0.0,NONE,PASS
+DQ-SCHEMA-CATEGORY_TRANSLATION,category_translation,__DATASET__,Conformity,Dataset schema must contain all expected columns,"Required columns=['product_category_name', 'product_category_name_english']","rows=71, columns=2, missing_columns=[], unexpected_columns=[]",0,0.0,NONE,PASS
+DQ-MISS-0001,customers,customer_id,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0002,customers,customer_unique_id,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0003,customers,customer_zip_code_prefix,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0004,customers,customer_city,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0005,customers,customer_state,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0006,geolocation,geolocation_zip_code_prefix,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0007,geolocation,geolocation_lat,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0008,geolocation,geolocation_lng,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0009,geolocation,geolocation_city,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0010,geolocation,geolocation_state,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0011,orders,order_id,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0012,orders,customer_id,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0013,orders,order_status,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0014,orders,order_purchase_timestamp,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0015,orders,order_approved_at,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,160 missing values,160,0.1609,MEDIUM,FAIL
+DQ-MISS-0016,orders,order_delivered_carrier_date,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,1783 missing values,1783,1.793,MEDIUM,FAIL
+DQ-MISS-0017,orders,order_delivered_customer_date,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,2965 missing values,2965,2.9817,MEDIUM,FAIL
+DQ-MISS-0018,orders,order_estimated_delivery_date,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0019,order_items,order_id,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0020,order_items,order_item_id,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0021,order_items,product_id,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0022,order_items,seller_id,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0023,order_items,shipping_limit_date,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0024,order_items,price,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0025,order_items,freight_value,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0026,payments,order_id,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0027,payments,payment_sequential,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0028,payments,payment_type,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0029,payments,payment_installments,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0030,payments,payment_value,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0031,reviews,review_id,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0032,reviews,order_id,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0033,reviews,review_score,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0034,reviews,review_comment_title,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,87656 missing values,87656,88.3415,MEDIUM,FAIL
+DQ-MISS-0035,reviews,review_comment_message,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,58247 missing values,58247,58.7025,MEDIUM,FAIL
+DQ-MISS-0036,reviews,review_creation_date,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0037,reviews,review_answer_timestamp,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0038,products,product_id,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0039,products,product_category_name,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,610 missing values,610,1.8512,MEDIUM,FAIL
+DQ-MISS-0040,products,product_name_lenght,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,610 missing values,610,1.8512,MEDIUM,FAIL
+DQ-MISS-0041,products,product_description_lenght,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,610 missing values,610,1.8512,MEDIUM,FAIL
+DQ-MISS-0042,products,product_photos_qty,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,610 missing values,610,1.8512,MEDIUM,FAIL
+DQ-MISS-0043,products,product_weight_g,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,2 missing values,2,0.0061,MEDIUM,FAIL
+DQ-MISS-0044,products,product_length_cm,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,2 missing values,2,0.0061,MEDIUM,FAIL
+DQ-MISS-0045,products,product_height_cm,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,2 missing values,2,0.0061,MEDIUM,FAIL
+DQ-MISS-0046,products,product_width_cm,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,2 missing values,2,0.0061,MEDIUM,FAIL
+DQ-MISS-0047,sellers,seller_id,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0048,sellers,seller_zip_code_prefix,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0049,sellers,seller_city,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0050,sellers,seller_state,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0051,category_translation,product_category_name,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-MISS-0052,category_translation,product_category_name_english,Completeness,Column should not contain unexpected missing values,0 missing values unless business rule permits NULL,0 missing values,0,0.0,NONE,PASS
+DQ-PKNULL-0001,customers,customer_id,Completeness,Primary key customer_id must not be NULL,0 NULL values,0 NULL values,0,0.0,NONE,PASS
+DQ-PKNULL-0002,orders,order_id,Completeness,Primary key order_id must not be NULL,0 NULL values,0 NULL values,0,0.0,NONE,PASS
+DQ-PKNULL-0003,order_items,order_id,Completeness,Primary key order_id must not be NULL,0 NULL values,0 NULL values,0,0.0,NONE,PASS
+DQ-PKNULL-0004,order_items,order_item_id,Completeness,Primary key order_item_id must not be NULL,0 NULL values,0 NULL values,0,0.0,NONE,PASS
+DQ-PKNULL-0005,payments,order_id,Completeness,Primary key order_id must not be NULL,0 NULL values,0 NULL values,0,0.0,NONE,PASS
+DQ-PKNULL-0006,payments,payment_sequential,Completeness,Primary key payment_sequential must not be NULL,0 NULL values,0 NULL values,0,0.0,NONE,PASS
+DQ-PKNULL-0007,products,product_id,Completeness,Primary key product_id must not be NULL,0 NULL values,0 NULL values,0,0.0,NONE,PASS
+DQ-PKNULL-0008,sellers,seller_id,Completeness,Primary key seller_id must not be NULL,0 NULL values,0 NULL values,0,0.0,NONE,PASS
+DQ-PKNULL-0009,category_translation,product_category_name,Completeness,Primary key product_category_name must not be NULL,0 NULL values,0 NULL values,0,0.0,NONE,PASS
+DQ-PKUNIQ-0001,customers,customer_id,Uniqueness,Primary/composite key (customer_id) must be unique,No duplicate key combinations,0 rows participate in duplicate keys,0,0.0,NONE,PASS
+DQ-PKUNIQ-0002,orders,order_id,Uniqueness,Primary/composite key (order_id) must be unique,No duplicate key combinations,0 rows participate in duplicate keys,0,0.0,NONE,PASS
+DQ-PKUNIQ-0003,order_items,"order_id, order_item_id",Uniqueness,"Primary/composite key (order_id, order_item_id) must be unique",No duplicate key combinations,0 rows participate in duplicate keys,0,0.0,NONE,PASS
+DQ-PKUNIQ-0004,payments,"order_id, payment_sequential",Uniqueness,"Primary/composite key (order_id, payment_sequential) must be unique",No duplicate key combinations,0 rows participate in duplicate keys,0,0.0,NONE,PASS
+DQ-PKUNIQ-0005,products,product_id,Uniqueness,Primary/composite key (product_id) must be unique,No duplicate key combinations,0 rows participate in duplicate keys,0,0.0,NONE,PASS
+DQ-PKUNIQ-0006,sellers,seller_id,Uniqueness,Primary/composite key (seller_id) must be unique,No duplicate key combinations,0 rows participate in duplicate keys,0,0.0,NONE,PASS
+DQ-PKUNIQ-0007,category_translation,product_category_name,Uniqueness,Primary/composite key (product_category_name) must be unique,No duplicate key combinations,0 rows participate in duplicate keys,0,0.0,NONE,PASS
+DQ-DUP-0001,customers,__FULL_ROW__,Uniqueness,Exact duplicate rows should not exist unless explicitly justified,0 exact duplicate rows,0 rows are exact duplicates,0,0.0,NONE,PASS
+DQ-DUP-0002,geolocation,__FULL_ROW__,Uniqueness,Exact duplicate rows should not exist unless explicitly justified,0 exact duplicate rows,390005 rows are exact duplicates,390005,38.9941,MEDIUM,FAIL
+DQ-DUP-0003,orders,__FULL_ROW__,Uniqueness,Exact duplicate rows should not exist unless explicitly justified,0 exact duplicate rows,0 rows are exact duplicates,0,0.0,NONE,PASS
+DQ-DUP-0004,order_items,__FULL_ROW__,Uniqueness,Exact duplicate rows should not exist unless explicitly justified,0 exact duplicate rows,0 rows are exact duplicates,0,0.0,NONE,PASS
+DQ-DUP-0005,payments,__FULL_ROW__,Uniqueness,Exact duplicate rows should not exist unless explicitly justified,0 exact duplicate rows,0 rows are exact duplicates,0,0.0,NONE,PASS
+DQ-DUP-0006,reviews,__FULL_ROW__,Uniqueness,Exact duplicate rows should not exist unless explicitly justified,0 exact duplicate rows,0 rows are exact duplicates,0,0.0,NONE,PASS
+DQ-DUP-0007,products,__FULL_ROW__,Uniqueness,Exact duplicate rows should not exist unless explicitly justified,0 exact duplicate rows,0 rows are exact duplicates,0,0.0,NONE,PASS
+DQ-DUP-0008,sellers,__FULL_ROW__,Uniqueness,Exact duplicate rows should not exist unless explicitly justified,0 exact duplicate rows,0 rows are exact duplicates,0,0.0,NONE,PASS
+DQ-DUP-0009,category_translation,__FULL_ROW__,Uniqueness,Exact duplicate rows should not exist unless explicitly justified,0 exact duplicate rows,0 rows are exact duplicates,0,0.0,NONE,PASS
+DQ-DTYPE-0001,customers,customer_id,Conformity,Column must conform to logical type 'string',string,str,0,0.0,NONE,PASS
+DQ-DTYPE-0002,customers,customer_unique_id,Conformity,Column must conform to logical type 'string',string,str,0,0.0,NONE,PASS
+DQ-DTYPE-0003,customers,customer_zip_code_prefix,Conformity,Column must conform to logical type 'integer',integer,int64,0,0.0,NONE,PASS
+DQ-DTYPE-0004,customers,customer_city,Conformity,Column must conform to logical type 'string',string,str,0,0.0,NONE,PASS
+DQ-DTYPE-0005,customers,customer_state,Conformity,Column must conform to logical type 'string',string,str,0,0.0,NONE,PASS
+DQ-DTYPE-0006,geolocation,geolocation_zip_code_prefix,Conformity,Column must conform to logical type 'integer',integer,int64,0,0.0,NONE,PASS
+DQ-DTYPE-0007,geolocation,geolocation_lat,Conformity,Column must conform to logical type 'numeric',numeric,float64,0,0.0,NONE,PASS
+DQ-DTYPE-0008,geolocation,geolocation_lng,Conformity,Column must conform to logical type 'numeric',numeric,float64,0,0.0,NONE,PASS
+DQ-DTYPE-0009,geolocation,geolocation_city,Conformity,Column must conform to logical type 'string',string,str,0,0.0,NONE,PASS
+DQ-DTYPE-0010,geolocation,geolocation_state,Conformity,Column must conform to logical type 'string',string,str,0,0.0,NONE,PASS
+DQ-DTYPE-0011,orders,order_id,Conformity,Column must conform to logical type 'string',string,str,0,0.0,NONE,PASS
+DQ-DTYPE-0012,orders,customer_id,Conformity,Column must conform to logical type 'string',string,str,0,0.0,NONE,PASS
+DQ-DTYPE-0013,orders,order_status,Conformity,Column must conform to logical type 'string',string,str,0,0.0,NONE,PASS
+DQ-DTYPE-0014,orders,order_purchase_timestamp,Conformity,Column must conform to logical type 'datetime',datetime,str,0,0.0,NONE,PASS
+DQ-DTYPE-0015,orders,order_approved_at,Conformity,Column must conform to logical type 'datetime',datetime,str,0,0.0,NONE,PASS
+DQ-DTYPE-0016,orders,order_delivered_carrier_date,Conformity,Column must conform to logical type 'datetime',datetime,str,0,0.0,NONE,PASS
+DQ-DTYPE-0017,orders,order_delivered_customer_date,Conformity,Column must conform to logical type 'datetime',datetime,str,0,0.0,NONE,PASS
+DQ-DTYPE-0018,orders,order_estimated_delivery_date,Conformity,Column must conform to logical type 'datetime',datetime,str,0,0.0,NONE,PASS
+DQ-DTYPE-0019,order_items,order_id,Conformity,Column must conform to logical type 'string',string,str,0,0.0,NONE,PASS
+DQ-DTYPE-0020,order_items,order_item_id,Conformity,Column must conform to logical type 'integer',integer,int64,0,0.0,NONE,PASS
+DQ-DTYPE-0021,order_items,product_id,Conformity,Column must conform to logical type 'string',string,str,0,0.0,NONE,PASS
+DQ-DTYPE-0022,order_items,seller_id,Conformity,Column must conform to logical type 'string',string,str,0,0.0,NONE,PASS
+DQ-DTYPE-0023,order_items,shipping_limit_date,Conformity,Column must conform to logical type 'datetime',datetime,str,0,0.0,NONE,PASS
+DQ-DTYPE-0024,order_items,price,Conformity,Column must conform to logical type 'numeric',numeric,float64,0,0.0,NONE,PASS
+DQ-DTYPE-0025,order_items,freight_value,Conformity,Column must conform to logical type 'numeric',numeric,float64,0,0.0,NONE,PASS
+DQ-DTYPE-0026,payments,order_id,Conformity,Column must conform to logical type 'string',string,str,0,0.0,NONE,PASS
+DQ-DTYPE-0027,payments,payment_sequential,Conformity,Column must conform to logical type 'integer',integer,int64,0,0.0,NONE,PASS
+DQ-DTYPE-0028,payments,payment_type,Conformity,Column must conform to logical type 'string',string,str,0,0.0,NONE,PASS
+DQ-DTYPE-0029,payments,payment_installments,Conformity,Column must conform to logical type 'integer',integer,int64,0,0.0,NONE,PASS
+DQ-DTYPE-0030,payments,payment_value,Conformity,Column must conform to logical type 'numeric',numeric,float64,0,0.0,NONE,PASS
+DQ-DTYPE-0031,reviews,review_id,Conformity,Column must conform to logical type 'string',string,str,0,0.0,NONE,PASS
+DQ-DTYPE-0032,reviews,order_id,Conformity,Column must conform to logical type 'string',string,str,0,0.0,NONE,PASS
+DQ-DTYPE-0033,reviews,review_score,Conformity,Column must conform to logical type 'integer',integer,int64,0,0.0,NONE,PASS
+DQ-DTYPE-0034,reviews,review_comment_title,Conformity,Column must conform to logical type 'string',string,str,0,0.0,NONE,PASS
+DQ-DTYPE-0035,reviews,review_comment_message,Conformity,Column must conform to logical type 'string',string,str,0,0.0,NONE,PASS
+DQ-DTYPE-0036,reviews,review_creation_date,Conformity,Column must conform to logical type 'datetime',datetime,str,0,0.0,NONE,PASS
+DQ-DTYPE-0037,reviews,review_answer_timestamp,Conformity,Column must conform to logical type 'datetime',datetime,str,0,0.0,NONE,PASS
+DQ-DTYPE-0038,products,product_id,Conformity,Column must conform to logical type 'string',string,str,0,0.0,NONE,PASS
+DQ-DTYPE-0039,products,product_category_name,Conformity,Column must conform to logical type 'string',string,str,0,0.0,NONE,PASS
+DQ-DTYPE-0040,products,product_name_lenght,Conformity,Column must conform to logical type 'numeric',numeric,float64,0,0.0,NONE,PASS
+DQ-DTYPE-0041,products,product_description_lenght,Conformity,Column must conform to logical type 'numeric',numeric,float64,0,0.0,NONE,PASS
+DQ-DTYPE-0042,products,product_photos_qty,Conformity,Column must conform to logical type 'numeric',numeric,float64,0,0.0,NONE,PASS
+DQ-DTYPE-0043,products,product_weight_g,Conformity,Column must conform to logical type 'numeric',numeric,float64,0,0.0,NONE,PASS
+DQ-DTYPE-0044,products,product_length_cm,Conformity,Column must conform to logical type 'numeric',numeric,float64,0,0.0,NONE,PASS
+DQ-DTYPE-0045,products,product_height_cm,Conformity,Column must conform to logical type 'numeric',numeric,float64,0,0.0,NONE,PASS
+DQ-DTYPE-0046,products,product_width_cm,Conformity,Column must conform to logical type 'numeric',numeric,float64,0,0.0,NONE,PASS
+DQ-DTYPE-0047,sellers,seller_id,Conformity,Column must conform to logical type 'string',string,str,0,0.0,NONE,PASS
+DQ-DTYPE-0048,sellers,seller_zip_code_prefix,Conformity,Column must conform to logical type 'integer',integer,int64,0,0.0,NONE,PASS
+DQ-DTYPE-0049,sellers,seller_city,Conformity,Column must conform to logical type 'string',string,str,0,0.0,NONE,PASS
+DQ-DTYPE-0050,sellers,seller_state,Conformity,Column must conform to logical type 'string',string,str,0,0.0,NONE,PASS
+DQ-DTYPE-0051,category_translation,product_category_name,Conformity,Column must conform to logical type 'string',string,str,0,0.0,NONE,PASS
+DQ-DTYPE-0052,category_translation,product_category_name_english,Conformity,Column must conform to logical type 'string',string,str,0,0.0,NONE,PASS
+DQ-DOMAIN-0001,reviews,review_score,Validity,Review score must be between 1 and 5,1 <= review_score <= 5,0 values outside valid range,0,0.0,NONE,PASS
+DQ-DOMAIN-0002,orders,order_status,Validity,Order status must belong to the defined Olist status domain,"['approved', 'canceled', 'created', 'delivered', 'invoiced', 'processing', 'shipped', 'unavailable']",0 invalid status values,0,0.0,NONE,PASS
+DQ-DOMAIN-0003,payments,payment_type,Validity,Payment type must belong to the defined payment domain,"['boleto', 'credit_card', 'debit_card', 'not_defined', 'voucher']",0 invalid payment types,0,0.0,NONE,PASS
+DQ-DOMAIN-0004,customers,customer_state,Validity,State code must belong to Brazilian UF domain,"['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO']",0 invalid state codes,0,0.0,NONE,PASS
+DQ-DOMAIN-0005,sellers,seller_state,Validity,State code must belong to Brazilian UF domain,"['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO']",0 invalid state codes,0,0.0,NONE,PASS
+DQ-DOMAIN-0006,geolocation,geolocation_state,Validity,State code must belong to Brazilian UF domain,"['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO']",0 invalid state codes,0,0.0,NONE,PASS
+DQ-ZERO-0001,products,product_weight_g,Validity,Zero values should be reviewed for business validity,No unexplained zero values,4 zero values,4,0.0121,LOW,FAIL
+DQ-ZERO-0002,products,product_length_cm,Validity,Zero values should be reviewed for business validity,No unexplained zero values,0 zero values,0,0.0,NONE,PASS
+DQ-ZERO-0003,products,product_height_cm,Validity,Zero values should be reviewed for business validity,No unexplained zero values,0 zero values,0,0.0,NONE,PASS
+DQ-ZERO-0004,products,product_width_cm,Validity,Zero values should be reviewed for business validity,No unexplained zero values,0 zero values,0,0.0,NONE,PASS
+DQ-ZERO-0005,products,product_photos_qty,Validity,Zero values should be reviewed for business validity,No unexplained zero values,0 zero values,0,0.0,NONE,PASS
+DQ-ZERO-0006,order_items,price,Validity,Zero values should be reviewed for business validity,No unexplained zero values,0 zero values,0,0.0,NONE,PASS
+DQ-ZERO-0007,order_items,freight_value,Validity,Zero values should be reviewed for business validity,No unexplained zero values,383 zero values,383,0.34,LOW,FAIL
+DQ-ZERO-0008,payments,payment_value,Validity,Zero values should be reviewed for business validity,No unexplained zero values,9 zero values,9,0.0087,LOW,FAIL
+DQ-ZERO-0009,payments,payment_installments,Validity,Zero values should be reviewed for business validity,No unexplained zero values,2 zero values,2,0.0019,LOW,FAIL
+DQ-NEG-0001,order_items,price,Validity,Numeric field must not contain negative values,0 negative values,0 negative values,0,0.0,NONE,PASS
+DQ-NEG-0002,order_items,freight_value,Validity,Numeric field must not contain negative values,0 negative values,0 negative values,0,0.0,NONE,PASS
+DQ-NEG-0003,payments,payment_value,Validity,Numeric field must not contain negative values,0 negative values,0 negative values,0,0.0,NONE,PASS
+DQ-NEG-0004,payments,payment_installments,Validity,Numeric field must not contain negative values,0 negative values,0 negative values,0,0.0,NONE,PASS
+DQ-NEG-0005,products,product_weight_g,Validity,Numeric field must not contain negative values,0 negative values,0 negative values,0,0.0,NONE,PASS
+DQ-NEG-0006,products,product_length_cm,Validity,Numeric field must not contain negative values,0 negative values,0 negative values,0,0.0,NONE,PASS
+DQ-NEG-0007,products,product_height_cm,Validity,Numeric field must not contain negative values,0 negative values,0 negative values,0,0.0,NONE,PASS
+DQ-NEG-0008,products,product_width_cm,Validity,Numeric field must not contain negative values,0 negative values,0 negative values,0,0.0,NONE,PASS
+DQ-NEG-0009,products,product_photos_qty,Validity,Numeric field must not contain negative values,0 negative values,0 negative values,0,0.0,NONE,PASS
+DQ-DATEPARSE-0001,orders,order_purchase_timestamp,Validity,Non-null date values must be parseable as datetime,0 unparseable non-null values,0 unparseable values,0,0.0,NONE,PASS
+DQ-DATEPARSE-0002,orders,order_approved_at,Validity,Non-null date values must be parseable as datetime,0 unparseable non-null values,0 unparseable values,0,0.0,NONE,PASS
+DQ-DATEPARSE-0003,orders,order_delivered_carrier_date,Validity,Non-null date values must be parseable as datetime,0 unparseable non-null values,0 unparseable values,0,0.0,NONE,PASS
+DQ-DATEPARSE-0004,orders,order_delivered_customer_date,Validity,Non-null date values must be parseable as datetime,0 unparseable non-null values,0 unparseable values,0,0.0,NONE,PASS
+DQ-DATEPARSE-0005,orders,order_estimated_delivery_date,Validity,Non-null date values must be parseable as datetime,0 unparseable non-null values,0 unparseable values,0,0.0,NONE,PASS
+DQ-DATEPARSE-0006,order_items,shipping_limit_date,Validity,Non-null date values must be parseable as datetime,0 unparseable non-null values,0 unparseable values,0,0.0,NONE,PASS
+DQ-DATEPARSE-0007,reviews,review_creation_date,Validity,Non-null date values must be parseable as datetime,0 unparseable non-null values,0 unparseable values,0,0.0,NONE,PASS
+DQ-DATEPARSE-0008,reviews,review_answer_timestamp,Validity,Non-null date values must be parseable as datetime,0 unparseable non-null values,0 unparseable values,0,0.0,NONE,PASS
+DQ-CHRON-0001,orders,order_purchase_timestamp -> order_approved_at,Consistency,Approval should not occur before purchase,Chronological order must be valid,0 chronology violations,0,0.0,NONE,PASS
+DQ-CHRON-0002,orders,order_purchase_timestamp -> order_delivered_carrier_date,Consistency,Carrier delivery should not occur before purchase,Chronological order must be valid,166 chronology violations,166,0.1669,HIGH,FAIL
+DQ-CHRON-0003,orders,order_purchase_timestamp -> order_delivered_customer_date,Consistency,Customer delivery should not occur before purchase,Chronological order must be valid,0 chronology violations,0,0.0,NONE,PASS
+DQ-CHRON-0004,orders,order_delivered_carrier_date -> order_delivered_customer_date,Consistency,Customer delivery should not occur before carrier delivery,Chronological order must be valid,23 chronology violations,23,0.0231,HIGH,FAIL
+DQ-FK-0001,orders,customer_id,Referential Integrity,Order customer_id must exist in customers.customer_id,All non-null child keys match parent keys,0 orphan records,0,0.0,NONE,PASS
+DQ-FK-0002,order_items,order_id,Referential Integrity,Order item order_id must exist in orders.order_id,All non-null child keys match parent keys,0 orphan records,0,0.0,NONE,PASS
+DQ-FK-0003,order_items,product_id,Referential Integrity,Order item product_id must exist in products.product_id,All non-null child keys match parent keys,0 orphan records,0,0.0,NONE,PASS
+DQ-FK-0004,order_items,seller_id,Referential Integrity,Order item seller_id must exist in sellers.seller_id,All non-null child keys match parent keys,0 orphan records,0,0.0,NONE,PASS
+DQ-FK-0005,payments,order_id,Referential Integrity,Payment order_id must exist in orders.order_id,All non-null child keys match parent keys,0 orphan records,0,0.0,NONE,PASS
+DQ-FK-0006,reviews,order_id,Referential Integrity,Review order_id must exist in orders.order_id,All non-null child keys match parent keys,0 orphan records,0,0.0,NONE,PASS
+DQ-CAT-0001,orders,order_status,Conformity,Order status values must use the defined categorical domain,"Allowed values=['approved', 'canceled', 'created', 'delivered', 'invoiced', 'processing', 'shipped', 'unavailable']",0 invalid values; examples=[],0,0.0,NONE,PASS
+DQ-CAT-0002,payments,payment_type,Conformity,Payment type values must use the defined categorical domain,"Allowed values=['boleto', 'credit_card', 'debit_card', 'not_defined', 'voucher']",0 invalid values; examples=[],0,0.0,NONE,PASS
+DQ-CAT-0003,customers,customer_state,Conformity,Customer state values must use Brazilian UF codes,"Allowed values=['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO']",0 invalid values; examples=[],0,0.0,NONE,PASS
+DQ-CAT-0004,sellers,seller_state,Conformity,Seller state values must use Brazilian UF codes,"Allowed values=['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO']",0 invalid values; examples=[],0,0.0,NONE,PASS
+DQ-CAT-0005,geolocation,geolocation_state,Conformity,Geolocation state values must use Brazilian UF codes,"Allowed values=['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO']",0 invalid values; examples=[],0,0.0,NONE,PASS
+DQ-TRANS-001,products,product_category_name,Referential Integrity,Non-null product categories should have a corresponding translation entry,All non-null categories covered by translation table,13 product rows without translation; 2 distinct categories,13,0.0395,MEDIUM,FAIL
+DQ-ZIP-001,customers,customer_zip_code_prefix,Referential Integrity,Customer ZIP prefix should exist in geolocation,All non-null ZIP prefixes found in geolocation,278 ZIP prefixes without geolocation match,278,0.2796,LOW,FAIL
+DQ-ZIP-002,sellers,seller_zip_code_prefix,Referential Integrity,Seller ZIP prefix should exist in geolocation,All non-null ZIP prefixes found in geolocation,7 ZIP prefixes without geolocation match,7,0.2262,LOW,FAIL
+DQ-NUM-001,geolocation,geolocation_lat,Validity,Latitude must be between -90 and 90,-90 <= value <= 90,0 implausible coordinate values,0,0.0,NONE,PASS
+DQ-NUM-002,geolocation,geolocation_lng,Validity,Longitude must be between -180 and 180,-180 <= value <= 180,0 implausible coordinate values,0,0.0,NONE,PASS
+DQ-NUM-010,customers,customer_zip_code_prefix,Validity,ZIP code prefix must be a five-digit numeric range,0 <= ZIP prefix <= 99999,0 implausible ZIP prefixes,0,0.0,NONE,PASS
+DQ-NUM-011,sellers,seller_zip_code_prefix,Validity,ZIP code prefix must be a five-digit numeric range,0 <= ZIP prefix <= 99999,0 implausible ZIP prefixes,0,0.0,NONE,PASS
+DQ-NUM-012,geolocation,geolocation_zip_code_prefix,Validity,ZIP code prefix must be a five-digit numeric range,0 <= ZIP prefix <= 99999,0 implausible ZIP prefixes,0,0.0,NONE,PASS

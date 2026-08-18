@@ -1,0 +1,10 @@
+﻿DATASET,FILE,EXISTS,ROWS,COLUMNS,MEMORY_MB
+customers,olist_customers_dataset.csv,True,99441,5,26.586
+geolocation,olist_geolocation_dataset.csv,True,1000163,5,130.265
+orders,olist_orders_dataset.csv,True,99441,8,52.937
+order_items,olist_order_items_dataset.csv,True,112650,7,35.99
+payments,olist_order_payments_dataset.csv,True,103886,5,16.229
+reviews,olist_order_reviews_dataset.csv,True,99224,7,39.125
+products,olist_products_dataset.csv,True,32951,9,6.297
+sellers,olist_sellers_dataset.csv,True,3095,4,0.588
+category_translation,product_category_name_translation.csv,True,71,2,0.009
