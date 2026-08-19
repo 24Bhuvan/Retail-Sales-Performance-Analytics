@@ -25,17 +25,31 @@ It does NOT:
 
 Cleaning belongs to Phase 5.
 
-EXPECTED TABLES
----------------
-customers
-geolocation
-orders
-order_items
-payments
-reviews
-products
-sellers
-category_translation
+POSTGRESQL TABLES
+-----------------
+The PostgreSQL database contains the original Olist table names:
+
+    olist_customers_dataset
+    olist_geolocation_dataset
+    olist_orders_dataset
+    olist_order_items_dataset
+    olist_order_payments_dataset
+    olist_order_reviews_dataset
+    olist_products_dataset
+    olist_sellers_dataset
+    product_category_name_translation
+
+LOGICAL DATASET NAMES USED IN RESULTS
+-------------------------------------
+    customers
+    geolocation
+    orders
+    order_items
+    payments
+    reviews
+    products
+    sellers
+    category_translation
 
 OUTPUT
 ------
@@ -80,7 +94,7 @@ CREATE TEMP TABLE dq_results (
     failed_count       BIGINT,
     failure_rate       NUMERIC(10,4),
     severity           VARCHAR(20),
-    status              VARCHAR(10)
+    status             VARCHAR(10)
 );
 
 
@@ -94,6 +108,7 @@ Purpose:
 
 ===============================================================================
 */
+
 
 INSERT INTO dq_results
 SELECT
@@ -117,7 +132,7 @@ SELECT
         WHEN COUNT(*) = 0 THEN 'FAIL'
         ELSE 'PASS'
     END
-FROM customers;
+FROM olist_customers_dataset;
 
 
 INSERT INTO dq_results
@@ -142,7 +157,7 @@ SELECT
         WHEN COUNT(*) = 0 THEN 'FAIL'
         ELSE 'PASS'
     END
-FROM geolocation;
+FROM olist_geolocation_dataset;
 
 
 INSERT INTO dq_results
@@ -167,7 +182,7 @@ SELECT
         WHEN COUNT(*) = 0 THEN 'FAIL'
         ELSE 'PASS'
     END
-FROM orders;
+FROM olist_orders_dataset;
 
 
 INSERT INTO dq_results
@@ -192,7 +207,7 @@ SELECT
         WHEN COUNT(*) = 0 THEN 'FAIL'
         ELSE 'PASS'
     END
-FROM order_items;
+FROM olist_order_items_dataset;
 
 
 INSERT INTO dq_results
@@ -217,7 +232,7 @@ SELECT
         WHEN COUNT(*) = 0 THEN 'FAIL'
         ELSE 'PASS'
     END
-FROM payments;
+FROM olist_order_payments_dataset;
 
 
 INSERT INTO dq_results
@@ -242,7 +257,7 @@ SELECT
         WHEN COUNT(*) = 0 THEN 'FAIL'
         ELSE 'PASS'
     END
-FROM reviews;
+FROM olist_order_reviews_dataset;
 
 
 INSERT INTO dq_results
@@ -267,7 +282,7 @@ SELECT
         WHEN COUNT(*) = 0 THEN 'FAIL'
         ELSE 'PASS'
     END
-FROM products;
+FROM olist_products_dataset;
 
 
 INSERT INTO dq_results
@@ -292,7 +307,7 @@ SELECT
         WHEN COUNT(*) = 0 THEN 'FAIL'
         ELSE 'PASS'
     END
-FROM sellers;
+FROM olist_sellers_dataset;
 
 
 INSERT INTO dq_results
@@ -317,7 +332,7 @@ SELECT
         WHEN COUNT(*) = 0 THEN 'FAIL'
         ELSE 'PASS'
     END
-FROM category_translation;
+FROM product_category_name_translation;
 
 
 /*
@@ -339,10 +354,14 @@ SELECT
     '0 NULL values',
     'NULL values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM customers), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_customers_dataset), 0),
+        4
+    ),
     'CRITICAL',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM customers
+FROM olist_customers_dataset
 WHERE customer_id IS NULL;
 
 
@@ -358,10 +377,14 @@ SELECT
     '0 NULL values',
     'NULL values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM customers), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_customers_dataset), 0),
+        4
+    ),
     'MEDIUM',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM customers
+FROM olist_customers_dataset
 WHERE customer_state IS NULL;
 
 
@@ -377,10 +400,14 @@ SELECT
     '0 NULL values',
     'NULL values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM orders), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_orders_dataset), 0),
+        4
+    ),
     'CRITICAL',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM orders
+FROM olist_orders_dataset
 WHERE order_id IS NULL;
 
 
@@ -396,10 +423,14 @@ SELECT
     '0 NULL values',
     'NULL values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM order_items), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_order_items_dataset), 0),
+        4
+    ),
     'CRITICAL',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM order_items
+FROM olist_order_items_dataset
 WHERE order_id IS NULL;
 
 
@@ -415,10 +446,14 @@ SELECT
     '0 NULL values',
     'NULL values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM order_items), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_order_items_dataset), 0),
+        4
+    ),
     'HIGH',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM order_items
+FROM olist_order_items_dataset
 WHERE product_id IS NULL;
 
 
@@ -434,10 +469,14 @@ SELECT
     '0 NULL values',
     'NULL values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM order_items), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_order_items_dataset), 0),
+        4
+    ),
     'HIGH',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM order_items
+FROM olist_order_items_dataset
 WHERE seller_id IS NULL;
 
 
@@ -453,10 +492,14 @@ SELECT
     '0 NULL values',
     'NULL values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM payments), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_order_payments_dataset), 0),
+        4
+    ),
     'HIGH',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM payments
+FROM olist_order_payments_dataset
 WHERE order_id IS NULL;
 
 
@@ -472,10 +515,14 @@ SELECT
     '0 NULL values',
     'NULL values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM reviews), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_order_reviews_dataset), 0),
+        4
+    ),
     'HIGH',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM reviews
+FROM olist_order_reviews_dataset
 WHERE review_id IS NULL;
 
 
@@ -491,10 +538,14 @@ SELECT
     '0 NULL values',
     'NULL values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM reviews), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_order_reviews_dataset), 0),
+        4
+    ),
     'HIGH',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM reviews
+FROM olist_order_reviews_dataset
 WHERE order_id IS NULL;
 
 
@@ -510,10 +561,14 @@ SELECT
     '0 NULL values',
     'NULL values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM products), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_products_dataset), 0),
+        4
+    ),
     'CRITICAL',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM products
+FROM olist_products_dataset
 WHERE product_id IS NULL;
 
 
@@ -529,10 +584,14 @@ SELECT
     '0 NULL values',
     'NULL values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM products), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_products_dataset), 0),
+        4
+    ),
     'MEDIUM',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM products
+FROM olist_products_dataset
 WHERE product_category_name IS NULL;
 
 
@@ -548,10 +607,14 @@ SELECT
     '0 NULL values',
     'NULL values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM sellers), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_sellers_dataset), 0),
+        4
+    ),
     'CRITICAL',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM sellers
+FROM olist_sellers_dataset
 WHERE seller_id IS NULL;
 
 
@@ -567,10 +630,14 @@ SELECT
     '0 NULL values',
     'NULL values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM sellers), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_sellers_dataset), 0),
+        4
+    ),
     'MEDIUM',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM sellers
+FROM olist_sellers_dataset
 WHERE seller_state IS NULL;
 
 
@@ -586,10 +653,17 @@ SELECT
     '0 NULL values',
     'NULL values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM category_translation), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF(
+            (SELECT COUNT(*) FROM product_category_name_translation),
+            0
+        ),
+        4
+    ),
     'HIGH',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM category_translation
+FROM product_category_name_translation
 WHERE product_category_name IS NULL;
 
 
@@ -605,10 +679,17 @@ SELECT
     '0 NULL values',
     'NULL values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM category_translation), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF(
+            (SELECT COUNT(*) FROM product_category_name_translation),
+            0
+        ),
+        4
+    ),
     'HIGH',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM category_translation
+FROM product_category_name_translation
 WHERE product_category_name_english IS NULL;
 
 
@@ -631,12 +712,16 @@ SELECT
     '0 duplicate key groups',
     'Duplicate key groups = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM customers), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_customers_dataset), 0),
+        4
+    ),
     'CRITICAL',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
 FROM (
     SELECT customer_id
-    FROM customers
+    FROM olist_customers_dataset
     GROUP BY customer_id
     HAVING COUNT(*) > 1
 ) d;
@@ -654,12 +739,16 @@ SELECT
     '0 duplicate key groups',
     'Duplicate key groups = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM orders), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_orders_dataset), 0),
+        4
+    ),
     'CRITICAL',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
 FROM (
     SELECT order_id
-    FROM orders
+    FROM olist_orders_dataset
     GROUP BY order_id
     HAVING COUNT(*) > 1
 ) d;
@@ -678,15 +767,15 @@ SELECT
     'Duplicate key groups = ' || COUNT(*)::TEXT,
     COUNT(*),
     ROUND(
-        COUNT(*) * 100.0
-        / NULLIF((SELECT COUNT(*) FROM order_items), 0),
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_order_items_dataset), 0),
         4
     ),
     'CRITICAL',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
 FROM (
     SELECT order_id, order_item_id
-    FROM order_items
+    FROM olist_order_items_dataset
     GROUP BY order_id, order_item_id
     HAVING COUNT(*) > 1
 ) d;
@@ -705,15 +794,15 @@ SELECT
     'Duplicate key groups = ' || COUNT(*)::TEXT,
     COUNT(*),
     ROUND(
-        COUNT(*) * 100.0
-        / NULLIF((SELECT COUNT(*) FROM payments), 0),
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_order_payments_dataset), 0),
         4
     ),
     'CRITICAL',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
 FROM (
     SELECT order_id, payment_sequential
-    FROM payments
+    FROM olist_order_payments_dataset
     GROUP BY order_id, payment_sequential
     HAVING COUNT(*) > 1
 ) d;
@@ -731,12 +820,16 @@ SELECT
     '0 duplicate key groups',
     'Duplicate key groups = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM products), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_products_dataset), 0),
+        4
+    ),
     'CRITICAL',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
 FROM (
     SELECT product_id
-    FROM products
+    FROM olist_products_dataset
     GROUP BY product_id
     HAVING COUNT(*) > 1
 ) d;
@@ -754,12 +847,16 @@ SELECT
     '0 duplicate key groups',
     'Duplicate key groups = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM sellers), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_sellers_dataset), 0),
+        4
+    ),
     'CRITICAL',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
 FROM (
     SELECT seller_id
-    FROM sellers
+    FROM olist_sellers_dataset
     GROUP BY seller_id
     HAVING COUNT(*) > 1
 ) d;
@@ -784,12 +881,16 @@ SELECT
     '0 duplicate key groups',
     'Duplicate key groups = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM reviews), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_order_reviews_dataset), 0),
+        4
+    ),
     'HIGH',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
 FROM (
     SELECT review_id
-    FROM reviews
+    FROM olist_order_reviews_dataset
     GROUP BY review_id
     HAVING COUNT(*) > 1
 ) d;
@@ -808,15 +909,18 @@ SELECT
     'Duplicate key groups = ' || COUNT(*)::TEXT,
     COUNT(*),
     ROUND(
-        COUNT(*) * 100.0
-        / NULLIF((SELECT COUNT(*) FROM category_translation), 0),
+        COUNT(*) * 100.0 /
+        NULLIF(
+            (SELECT COUNT(*) FROM product_category_name_translation),
+            0
+        ),
         4
     ),
     'HIGH',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
 FROM (
     SELECT product_category_name
-    FROM category_translation
+    FROM product_category_name_translation
     GROUP BY product_category_name
     HAVING COUNT(*) > 1
 ) d;
@@ -832,11 +936,15 @@ SELECT
     'Uniqueness',
     'Exact duplicate geolocation rows should be reviewed',
     '0 duplicate rows',
-    'Rows participating in duplicates = ' || COALESCE(SUM(row_count), 0)::TEXT,
+    'Rows participating in duplicates = ' ||
+        COALESCE(SUM(row_count), 0)::TEXT,
     COALESCE(SUM(row_count), 0),
     ROUND(
-        COALESCE(SUM(row_count), 0) * 100.0
-        / NULLIF((SELECT COUNT(*) FROM geolocation), 0),
+        COALESCE(SUM(row_count), 0) * 100.0 /
+        NULLIF(
+            (SELECT COUNT(*) FROM olist_geolocation_dataset),
+            0
+        ),
         4
     ),
     'MEDIUM',
@@ -852,7 +960,7 @@ FROM (
         geolocation_city,
         geolocation_state,
         COUNT(*) AS row_count
-    FROM geolocation
+    FROM olist_geolocation_dataset
     GROUP BY
         geolocation_zip_code_prefix,
         geolocation_lat,
@@ -888,10 +996,14 @@ SELECT
     '0 NULL values',
     'NULL values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM orders), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_orders_dataset), 0),
+        4
+    ),
     'HIGH',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM orders
+FROM olist_orders_dataset
 WHERE customer_id IS NULL;
 
 
@@ -907,10 +1019,14 @@ SELECT
     '0 NULL values',
     'NULL values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM order_items), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_order_items_dataset), 0),
+        4
+    ),
     'CRITICAL',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM order_items
+FROM olist_order_items_dataset
 WHERE order_id IS NULL;
 
 
@@ -933,14 +1049,18 @@ SELECT
     '0 orphan customer references',
     'Orphan rows = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM orders), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_orders_dataset), 0),
+        4
+    ),
     'HIGH',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM orders o
+FROM olist_orders_dataset o
 WHERE o.customer_id IS NOT NULL
   AND NOT EXISTS (
       SELECT 1
-      FROM customers c
+      FROM olist_customers_dataset c
       WHERE c.customer_id = o.customer_id
   );
 
@@ -957,14 +1077,18 @@ SELECT
     '0 orphan order references',
     'Orphan rows = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM order_items), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_order_items_dataset), 0),
+        4
+    ),
     'CRITICAL',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM order_items oi
+FROM olist_order_items_dataset oi
 WHERE oi.order_id IS NOT NULL
   AND NOT EXISTS (
       SELECT 1
-      FROM orders o
+      FROM olist_orders_dataset o
       WHERE o.order_id = oi.order_id
   );
 
@@ -981,14 +1105,18 @@ SELECT
     '0 orphan product references',
     'Orphan rows = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM order_items), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_order_items_dataset), 0),
+        4
+    ),
     'CRITICAL',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM order_items oi
+FROM olist_order_items_dataset oi
 WHERE oi.product_id IS NOT NULL
   AND NOT EXISTS (
       SELECT 1
-      FROM products p
+      FROM olist_products_dataset p
       WHERE p.product_id = oi.product_id
   );
 
@@ -1005,14 +1133,18 @@ SELECT
     '0 orphan seller references',
     'Orphan rows = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM order_items), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_order_items_dataset), 0),
+        4
+    ),
     'CRITICAL',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM order_items oi
+FROM olist_order_items_dataset oi
 WHERE oi.seller_id IS NOT NULL
   AND NOT EXISTS (
       SELECT 1
-      FROM sellers s
+      FROM olist_sellers_dataset s
       WHERE s.seller_id = oi.seller_id
   );
 
@@ -1029,14 +1161,18 @@ SELECT
     '0 orphan order references',
     'Orphan rows = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM payments), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_order_payments_dataset), 0),
+        4
+    ),
     'HIGH',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM payments p
+FROM olist_order_payments_dataset p
 WHERE p.order_id IS NOT NULL
   AND NOT EXISTS (
       SELECT 1
-      FROM orders o
+      FROM olist_orders_dataset o
       WHERE o.order_id = p.order_id
   );
 
@@ -1053,14 +1189,18 @@ SELECT
     '0 orphan order references',
     'Orphan rows = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM reviews), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_order_reviews_dataset), 0),
+        4
+    ),
     'HIGH',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM reviews r
+FROM olist_order_reviews_dataset r
 WHERE r.order_id IS NOT NULL
   AND NOT EXISTS (
       SELECT 1
-      FROM orders o
+      FROM olist_orders_dataset o
       WHERE o.order_id = r.order_id
   );
 
@@ -1084,10 +1224,14 @@ SELECT
     'Valid Brazilian UF code',
     'Invalid values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM customers), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_customers_dataset), 0),
+        4
+    ),
     'MEDIUM',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM customers
+FROM olist_customers_dataset
 WHERE customer_state IS NOT NULL
   AND customer_state NOT IN (
       'AC','AL','AP','AM','BA','CE','DF','ES','GO',
@@ -1108,10 +1252,14 @@ SELECT
     'delivered, shipped, canceled, invoiced, processing, unavailable, approved, created',
     'Invalid values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM orders), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_orders_dataset), 0),
+        4
+    ),
     'HIGH',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM orders
+FROM olist_orders_dataset
 WHERE order_status IS NOT NULL
   AND order_status NOT IN (
       'delivered',
@@ -1137,10 +1285,14 @@ SELECT
     'credit_card, boleto, voucher, debit_card, not_defined',
     'Invalid values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM payments), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_order_payments_dataset), 0),
+        4
+    ),
     'HIGH',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM payments
+FROM olist_order_payments_dataset
 WHERE payment_type IS NOT NULL
   AND payment_type NOT IN (
       'credit_card',
@@ -1163,10 +1315,14 @@ SELECT
     '1 <= review_score <= 5',
     'Invalid values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM reviews), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_order_reviews_dataset), 0),
+        4
+    ),
     'HIGH',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM reviews
+FROM olist_order_reviews_dataset
 WHERE review_score IS NOT NULL
   AND review_score NOT BETWEEN 1 AND 5;
 
@@ -1183,10 +1339,14 @@ SELECT
     'Valid Brazilian UF code',
     'Invalid values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM sellers), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_sellers_dataset), 0),
+        4
+    ),
     'MEDIUM',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM sellers
+FROM olist_sellers_dataset
 WHERE seller_state IS NOT NULL
   AND seller_state NOT IN (
       'AC','AL','AP','AM','BA','CE','DF','ES','GO',
@@ -1214,10 +1374,14 @@ SELECT
     '> 0',
     'Invalid values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM order_items), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_order_items_dataset), 0),
+        4
+    ),
     'HIGH',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM order_items
+FROM olist_order_items_dataset
 WHERE price <= 0;
 
 
@@ -1233,10 +1397,14 @@ SELECT
     '>= 0',
     'Invalid values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM order_items), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_order_items_dataset), 0),
+        4
+    ),
     'HIGH',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM order_items
+FROM olist_order_items_dataset
 WHERE freight_value < 0;
 
 
@@ -1252,10 +1420,14 @@ SELECT
     '>= 0',
     'Invalid values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM payments), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_order_payments_dataset), 0),
+        4
+    ),
     'HIGH',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM payments
+FROM olist_order_payments_dataset
 WHERE payment_value < 0;
 
 
@@ -1271,10 +1443,14 @@ SELECT
     '>= 0',
     'Invalid values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM payments), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_order_payments_dataset), 0),
+        4
+    ),
     'MEDIUM',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM payments
+FROM olist_order_payments_dataset
 WHERE payment_installments < 0;
 
 
@@ -1290,10 +1466,14 @@ SELECT
     '>= 0',
     'Invalid values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM products), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_products_dataset), 0),
+        4
+    ),
     'HIGH',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM products
+FROM olist_products_dataset
 WHERE product_weight_g < 0;
 
 
@@ -1309,10 +1489,14 @@ SELECT
     '>= 0',
     'Invalid values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM products), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_products_dataset), 0),
+        4
+    ),
     'HIGH',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM products
+FROM olist_products_dataset
 WHERE product_length_cm < 0;
 
 
@@ -1328,10 +1512,14 @@ SELECT
     '>= 0',
     'Invalid values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM products), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_products_dataset), 0),
+        4
+    ),
     'HIGH',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM products
+FROM olist_products_dataset
 WHERE product_height_cm < 0;
 
 
@@ -1347,10 +1535,14 @@ SELECT
     '>= 0',
     'Invalid values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM products), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_products_dataset), 0),
+        4
+    ),
     'HIGH',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM products
+FROM olist_products_dataset
 WHERE product_width_cm < 0;
 
 
@@ -1385,10 +1577,14 @@ SELECT
     'approved_at >= purchase_timestamp',
     'Violations = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM orders), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_orders_dataset), 0),
+        4
+    ),
     'HIGH',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM orders
+FROM olist_orders_dataset
 WHERE order_approved_at IS NOT NULL
   AND order_purchase_timestamp IS NOT NULL
   AND order_approved_at < order_purchase_timestamp;
@@ -1406,10 +1602,14 @@ SELECT
     'carrier_date >= purchase_timestamp',
     'Violations = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM orders), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_orders_dataset), 0),
+        4
+    ),
     'HIGH',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM orders
+FROM olist_orders_dataset
 WHERE order_delivered_carrier_date IS NOT NULL
   AND order_purchase_timestamp IS NOT NULL
   AND order_delivered_carrier_date < order_purchase_timestamp;
@@ -1427,10 +1627,14 @@ SELECT
     'customer_delivery >= purchase_timestamp',
     'Violations = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM orders), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_orders_dataset), 0),
+        4
+    ),
     'HIGH',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM orders
+FROM olist_orders_dataset
 WHERE order_delivered_customer_date IS NOT NULL
   AND order_purchase_timestamp IS NOT NULL
   AND order_delivered_customer_date < order_purchase_timestamp;
@@ -1448,10 +1652,14 @@ SELECT
     'customer_delivery >= carrier_delivery',
     'Violations = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM orders), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_orders_dataset), 0),
+        4
+    ),
     'HIGH',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM orders
+FROM olist_orders_dataset
 WHERE order_delivered_customer_date IS NOT NULL
   AND order_delivered_carrier_date IS NOT NULL
   AND order_delivered_customer_date < order_delivered_carrier_date;
@@ -1476,10 +1684,14 @@ SELECT
     'Valid UF code',
     'Invalid values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM customers), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_customers_dataset), 0),
+        4
+    ),
     'MEDIUM',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM customers
+FROM olist_customers_dataset
 WHERE customer_state IS NOT NULL
   AND customer_state NOT IN (
       'AC','AL','AP','AM','BA','CE','DF','ES','GO',
@@ -1500,10 +1712,14 @@ SELECT
     'Valid UF code',
     'Invalid values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM sellers), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_sellers_dataset), 0),
+        4
+    ),
     'MEDIUM',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM sellers
+FROM olist_sellers_dataset
 WHERE seller_state IS NOT NULL
   AND seller_state NOT IN (
       'AC','AL','AP','AM','BA','CE','DF','ES','GO',
@@ -1524,10 +1740,14 @@ SELECT
     'Valid UF code',
     'Invalid values = ' || COUNT(*)::TEXT,
     COUNT(*),
-    ROUND(COUNT(*) * 100.0 / NULLIF((SELECT COUNT(*) FROM geolocation), 0), 4),
+    ROUND(
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_geolocation_dataset), 0),
+        4
+    ),
     'MEDIUM',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM geolocation
+FROM olist_geolocation_dataset
 WHERE geolocation_state IS NOT NULL
   AND geolocation_state NOT IN (
       'AC','AL','AP','AM','BA','CE','DF','ES','GO',
@@ -1539,10 +1759,6 @@ WHERE geolocation_state IS NOT NULL
 /*
 ===============================================================================
 SECTION 11 — BUSINESS-RULE VALIDATION
-===============================================================================
-
-These rules test logical business conditions beyond simple constraints.
-
 ===============================================================================
 */
 
@@ -1560,11 +1776,11 @@ SELECT
     'Violations = ' || COUNT(*)::TEXT,
     COUNT(*),
     ROUND(
-        COUNT(*) * 100.0
-        / NULLIF(
+        COUNT(*) * 100.0 /
+        NULLIF(
             (
                 SELECT COUNT(*)
-                FROM orders
+                FROM olist_orders_dataset
                 WHERE order_status = 'delivered'
             ),
             0
@@ -1573,7 +1789,7 @@ SELECT
     ),
     'MEDIUM',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM orders
+FROM olist_orders_dataset
 WHERE order_status = 'delivered'
   AND order_delivered_customer_date IS NULL;
 
@@ -1591,11 +1807,11 @@ SELECT
     'Violations = ' || COUNT(*)::TEXT,
     COUNT(*),
     ROUND(
-        COUNT(*) * 100.0
-        / NULLIF(
+        COUNT(*) * 100.0 /
+        NULLIF(
             (
                 SELECT COUNT(*)
-                FROM orders
+                FROM olist_orders_dataset
                 WHERE order_status = 'delivered'
             ),
             0
@@ -1604,7 +1820,7 @@ SELECT
     ),
     'MEDIUM',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM orders
+FROM olist_orders_dataset
 WHERE order_status = 'delivered'
   AND order_delivered_carrier_date IS NULL;
 
@@ -1622,13 +1838,13 @@ SELECT
     'Violations = ' || COUNT(*)::TEXT,
     COUNT(*),
     ROUND(
-        COUNT(*) * 100.0
-        / NULLIF((SELECT COUNT(*) FROM payments), 0),
+        COUNT(*) * 100.0 /
+        NULLIF((SELECT COUNT(*) FROM olist_order_payments_dataset), 0),
         4
     ),
     'MEDIUM',
     CASE WHEN COUNT(*) = 0 THEN 'PASS' ELSE 'FAIL' END
-FROM payments
+FROM olist_order_payments_dataset
 WHERE payment_installments <= 0;
 
 
