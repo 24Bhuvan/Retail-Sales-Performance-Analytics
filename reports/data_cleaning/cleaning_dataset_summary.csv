@@ -1,0 +1,10 @@
+dataset,rows_before,rows_after,rows_removed,columns_before,columns_after,null_cells_before,null_cells_after,exact_duplicates_before,exact_duplicates_after
+customers,99441,99441,0,5,5,0,0,0,0
+geolocation,1000163,738332,261831,5,5,0,0,261831,0
+orders,99441,99441,0,8,8,4908,5097,0,0
+order_items,112650,112650,0,7,7,0,0,0,0
+payments,103886,103886,0,5,5,0,2,0,0
+reviews,99224,99224,0,7,7,145903,145914,0,0
+products,32951,32951,0,9,9,2448,2448,0,0
+sellers,3095,3095,0,4,4,0,0,0,0
+category_translation,71,71,0,2,2,0,0,0,0

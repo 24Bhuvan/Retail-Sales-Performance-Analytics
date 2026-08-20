@@ -1,0 +1,14 @@
+{
+    "phase": "Phase 5 \u2014 Data Cleaning Strategy",
+    "project": "Retail Sales Performance Analytics",
+    "execution_timestamp": "2026-08-19T13:48:29",
+    "datasets_processed": 9,
+    "total_rows_before": 1550922,
+    "total_rows_after": 1289091,
+    "total_rows_removed": 261831,
+    "cleaning_actions_applied": 32,
+    "raw_data_modified": false,
+    "cleaned_data_directory": "C:\\Users\\Bhuvan Ummidisetti\\Desktop\\Project 1\\Retail-Sales-Performance-Analytics\\data\\cleaned",
+    "cleaning_log": "C:\\Users\\Bhuvan Ummidisetti\\Desktop\\Project 1\\Retail-Sales-Performance-Analytics\\reports\\data_cleaning\\cleaning_log.csv",
+    "validation_status": "PENDING_FINAL_POST_CLEANING_VALIDATION"
+}

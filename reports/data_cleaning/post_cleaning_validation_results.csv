@@ -1,0 +1,55 @@
+﻿TEST_ID,CATEGORY,DATASET,RULE,EXPECTED,ACTUAL,FAILED_COUNT,SEVERITY,STATUS
+P5-TABLE-CUSTOMERS,Table Existence,customers,Expected cleaned table must exist,cleaned.customers,Table exists,0,NONE,PASS
+P5-TABLE-GEOLOCATION,Table Existence,geolocation,Expected cleaned table must exist,cleaned.geolocation,Table exists,0,NONE,PASS
+P5-TABLE-ORDERS,Table Existence,orders,Expected cleaned table must exist,cleaned.orders,Table exists,0,NONE,PASS
+P5-TABLE-ORDER_ITEMS,Table Existence,order_items,Expected cleaned table must exist,cleaned.order_items,Table exists,0,NONE,PASS
+P5-TABLE-PAYMENTS,Table Existence,payments,Expected cleaned table must exist,cleaned.payments,Table exists,0,NONE,PASS
+P5-TABLE-REVIEWS,Table Existence,reviews,Expected cleaned table must exist,cleaned.reviews,Table exists,0,NONE,PASS
+P5-TABLE-PRODUCTS,Table Existence,products,Expected cleaned table must exist,cleaned.products,Table exists,0,NONE,PASS
+P5-TABLE-SELLERS,Table Existence,sellers,Expected cleaned table must exist,cleaned.sellers,Table exists,0,NONE,PASS
+P5-TABLE-CATEGORY_TRANSLATION,Table Existence,category_translation,Expected cleaned table must exist,cleaned.category_translation,Table exists,0,NONE,PASS
+P5-ROWCOUNT-CUSTOMERS,Row Count,customers,Cleaned row count must match Phase 5 SQL result,99441 rows,99441 rows,0,NONE,PASS
+P5-ROWCOUNT-GEOLOCATION,Row Count,geolocation,Cleaned row count must match Phase 5 SQL result,738332 rows,738332 rows,0,NONE,PASS
+P5-ROWCOUNT-ORDERS,Row Count,orders,Cleaned row count must match Phase 5 SQL result,99441 rows,99441 rows,0,NONE,PASS
+P5-ROWCOUNT-ORDER_ITEMS,Row Count,order_items,Cleaned row count must match Phase 5 SQL result,112650 rows,112650 rows,0,NONE,PASS
+P5-ROWCOUNT-PAYMENTS,Row Count,payments,Cleaned row count must match Phase 5 SQL result,103886 rows,103886 rows,0,NONE,PASS
+P5-ROWCOUNT-REVIEWS,Row Count,reviews,Cleaned row count must match Phase 5 SQL result,99224 rows,99224 rows,0,NONE,PASS
+P5-ROWCOUNT-PRODUCTS,Row Count,products,Cleaned row count must match Phase 5 SQL result,32951 rows,32951 rows,0,NONE,PASS
+P5-ROWCOUNT-SELLERS,Row Count,sellers,Cleaned row count must match Phase 5 SQL result,3095 rows,3095 rows,0,NONE,PASS
+P5-ROWCOUNT-CATEGORY_TRANSLATION,Row Count,category_translation,Cleaned row count must match Phase 5 SQL result,71 rows,71 rows,0,NONE,PASS
+P5-SUMMARY-CATEGORY_TRANSLATION,Cleaning Summary,category_translation,Cleaning summary must match approved Phase 5 result,"before=71, after=71, removed=0","before=71, after=71, removed=0",0,NONE,PASS
+P5-SUMMARY-CUSTOMERS,Cleaning Summary,customers,Cleaning summary must match approved Phase 5 result,"before=99441, after=99441, removed=0","before=99441, after=99441, removed=0",0,NONE,PASS
+P5-SUMMARY-GEOLOCATION,Cleaning Summary,geolocation,Cleaning summary must match approved Phase 5 result,"before=1000163, after=738332, removed=261831","before=1000163, after=738332, removed=261831",0,NONE,PASS
+P5-SUMMARY-ORDER_ITEMS,Cleaning Summary,order_items,Cleaning summary must match approved Phase 5 result,"before=112650, after=112650, removed=0","before=112650, after=112650, removed=0",0,NONE,PASS
+P5-SUMMARY-ORDERS,Cleaning Summary,orders,Cleaning summary must match approved Phase 5 result,"before=99441, after=99441, removed=0","before=99441, after=99441, removed=0",0,NONE,PASS
+P5-SUMMARY-PAYMENTS,Cleaning Summary,payments,Cleaning summary must match approved Phase 5 result,"before=103886, after=103886, removed=0","before=103886, after=103886, removed=0",0,NONE,PASS
+P5-SUMMARY-PRODUCTS,Cleaning Summary,products,Cleaning summary must match approved Phase 5 result,"before=32951, after=32951, removed=0","before=32951, after=32951, removed=0",0,NONE,PASS
+P5-SUMMARY-REVIEWS,Cleaning Summary,reviews,Cleaning summary must match approved Phase 5 result,"before=99224, after=99224, removed=0","before=99224, after=99224, removed=0",0,NONE,PASS
+P5-SUMMARY-SELLERS,Cleaning Summary,sellers,Cleaning summary must match approved Phase 5 result,"before=3095, after=3095, removed=0","before=3095, after=3095, removed=0",0,NONE,PASS
+P5-PK-CUSTOMERS,Primary Key,customers,Primary key must be unique,0 duplicate key groups,0 duplicate key groups,0,NONE,PASS
+P5-PK-ORDERS,Primary Key,orders,Primary key must be unique,0 duplicate key groups,0 duplicate key groups,0,NONE,PASS
+P5-PK-PRODUCTS,Primary Key,products,Primary key must be unique,0 duplicate key groups,0 duplicate key groups,0,NONE,PASS
+P5-PK-SELLERS,Primary Key,sellers,Primary key must be unique,0 duplicate key groups,0 duplicate key groups,0,NONE,PASS
+P5-COMPOSITE-ORDER_ITEMS,Composite Key,order_items,"Composite key (order_id, order_item_id) must be unique",0 duplicate key groups,0 duplicate key groups,0,NONE,PASS
+P5-COMPOSITE-PAYMENTS,Composite Key,payments,"Composite key (order_id, payment_sequential) must be unique",0 duplicate key groups,0 duplicate key groups,0,NONE,PASS
+P5-CHRON-001,Chronology,orders,order_delivered_carrier_date >= order_purchase_timestamp,0 chronology violations,0 violations,0,NONE,PASS
+P5-CHRON-002,Chronology,orders,order_delivered_customer_date >= order_purchase_timestamp,0 chronology violations,0 violations,0,NONE,PASS
+P5-CHRON-003,Chronology,orders,order_delivered_customer_date >= order_delivered_carrier_date,0 chronology violations,0 violations,0,NONE,PASS
+P5-PAY-001,Payment Validation,payments,payment_installments = 0 must be converted to NULL,0 zero-installment records,0 zero-installment records,0,NONE,PASS
+P5-NEG-001,Negative Values,order_items,Price must not be negative,0 negative values,0 negative values,0,NONE,PASS
+P5-NEG-002,Negative Values,order_items,Freight value must not be negative,0 negative values,0 negative values,0,NONE,PASS
+P5-NEG-003,Negative Values,payments,Payment value must not be negative,0 negative values,0 negative values,0,NONE,PASS
+P5-FK-001,Referential Integrity,orders,Order customer_id must exist in customers.customer_id,0 orphan records,0 orphan records,0,NONE,PASS
+P5-FK-002,Referential Integrity,order_items,Order item order_id must exist in orders.order_id,0 orphan records,0 orphan records,0,NONE,PASS
+P5-FK-003,Referential Integrity,order_items,Order item product_id must exist in products.product_id,0 orphan records,0 orphan records,0,NONE,PASS
+P5-FK-004,Referential Integrity,order_items,Order item seller_id must exist in sellers.seller_id,0 orphan records,0 orphan records,0,NONE,PASS
+P5-FK-005,Referential Integrity,payments,Payment order_id must exist in orders.order_id,0 orphan records,0 orphan records,0,NONE,PASS
+P5-FK-006,Referential Integrity,reviews,Review order_id must exist in orders.order_id,0 orphan records,0 orphan records,0,NONE,PASS
+P5-ZERO-001,Zero Preservation,order_items,Zero freight values must be preserved,383 zero values,383 zero values,0,NONE,PASS
+P5-ZERO-002,Zero Preservation,payments,Zero payment values must be preserved,9 zero values,9 zero values,0,NONE,PASS
+P5-ZERO-003,Zero Preservation,products,Zero product weights must be preserved,4 zero values,4 zero values,0,NONE,PASS
+P5-NULL-001,NULL Preservation,products,Missing product categories must remain NULL,610 NULL product categories,610 NULL product categories,0,NONE,PASS
+P5-TRANS-001,Translation Coverage,products,Translation gaps must remain measurable and unfabricated,13 product rows without English translation,13 product rows without English translation,0,NONE,PASS
+P5-GEO-001,Duplicate Removal,geolocation,Exact duplicate geolocation rows must be removed,738332 cleaned rows,738332 cleaned rows,0,NONE,PASS
+P5-GEO-002,Duplicate Removal,geolocation,Cleaned geolocation must contain no exact duplicate rows,0 duplicate groups,0 duplicate groups,0,NONE,PASS
+P5-REVIEW-001,Key Policy,reviews,review_id must not be treated as a unique key,0 UNIQUE/PRIMARY KEY constraints on review_id,0 UNIQUE/PRIMARY KEY constraints on review_id,0,NONE,PASS
