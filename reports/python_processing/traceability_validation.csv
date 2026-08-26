@@ -1,0 +1,15 @@
+dataset,source_key,source_unique_values,processed_unique_values,missing_values,status
+orders_processed,order_id,99441,99441,0,PASS
+orders_processed,customer_id,99441,99441,0,PASS
+order_items_processed,order_id,98666,98666,0,PASS
+order_items_processed,order_item_id,21,21,0,PASS
+order_items_processed,product_id,32951,32951,0,PASS
+order_items_processed,seller_id,3095,3095,0,PASS
+payments_processed,order_id,99440,99440,0,PASS
+payments_processed,payment_sequential,29,29,0,PASS
+reviews_processed,review_id,98410,98410,0,PASS
+reviews_processed,order_id,98673,98673,0,PASS
+customers_processed,customer_id,99441,99441,0,PASS
+customers_processed,customer_unique_id,96096,96096,0,PASS
+products_processed,product_id,32951,32951,0,PASS
+sellers_processed,seller_id,3095,3095,0,PASS

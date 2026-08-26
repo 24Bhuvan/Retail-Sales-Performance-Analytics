@@ -1,0 +1,22 @@
+          metric           |    value    
+---------------------------+-------------
+ category_count            |          73
+ category_translation_rows |          71
+ customer_count            |       99441
+ customers_rows            |       99441
+ order_count               |       99441
+ order_item_count          |      112650
+ order_items_rows          |      112650
+ orders_rows               |       99441
+ payment_count             |      103886
+ payments_rows             |      103886
+ product_count             |       32951
+ products_rows             |       32951
+ review_count              |       99224
+ reviews_rows              |       99224
+ seller_count              |        3095
+ sellers_rows              |        3095
+ total_item_price          | 13591643.70
+ total_payment_value       | 16008872.12
+(18 rows)
+

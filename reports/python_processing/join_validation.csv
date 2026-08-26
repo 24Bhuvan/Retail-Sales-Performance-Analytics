@@ -1,0 +1,9 @@
+join_name,left_dataset,right_dataset,join_keys,join_type,validation_rule,left_rows,result_rows,row_change,unmatched_rows,unmatched_allowed,duplicate_right_keys,status
+orders_to_customers,orders,customers,customer_id,LEFT,many_to_one,99441,99441,0,0,False,0,PASS
+order_items_to_orders,order_items,orders,order_id,LEFT,many_to_one,112650,112650,0,0,False,0,PASS
+order_items_to_products,order_items_enriched,products,product_id,LEFT,many_to_one,112650,112650,0,0,False,0,PASS
+order_items_to_sellers,order_items_enriched,sellers,seller_id,LEFT,many_to_one,112650,112650,0,0,False,0,PASS
+products_to_category_translation,order_items_enriched,category_translation,product_category_name,LEFT,many_to_one,112650,112650,0,1627,True,0,PASS
+payments_to_orders,payments,orders,order_id,LEFT,many_to_one,103886,103886,0,0,False,0,PASS
+reviews_to_orders,reviews,orders,order_id,LEFT,many_to_one,99224,99224,0,0,False,0,PASS
+reviews_to_customers,reviews_enriched,customers,customer_id,LEFT,many_to_one,99224,99224,0,0,False,0,PASS

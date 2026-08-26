@@ -1,0 +1,9 @@
+dataset,source_dataset,input_rows,output_rows,row_change,input_columns,output_columns,status,expected_unique_zip_prefixes
+orders_processed,orders,99441,99441,0,8,16,PASS,
+order_items_processed,order_items,112650,112650,0,7,27,PASS,
+payments_processed,payments,103886,103886,0,5,8,PASS,
+reviews_processed,reviews,99224,99224,0,7,14,PASS,
+customers_processed,customers,99441,99441,0,5,5,PASS,
+products_processed,products,32951,32951,0,9,9,PASS,
+sellers_processed,sellers,3095,3095,0,4,4,PASS,
+geography_processed,geolocation,738332,19015,-719317,5,5,PASS,19015.0
