@@ -1,0 +1,6 @@
+payment_type,payment_value,sql_payment_value,difference,match
+credit_card,12542084.19,12542084.19,0.0,True
+boleto,2869361.27,2869361.27,0.0,True
+voucher,379436.87,379436.87,0.0,True
+debit_card,217989.79,217989.79,0.0,True
+not_defined,0.0,0.0,0.0,True
