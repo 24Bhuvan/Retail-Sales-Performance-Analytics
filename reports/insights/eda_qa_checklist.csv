@@ -1,0 +1,14 @@
+QA Item,Status
+Notebook executes from top to bottom,MANUAL CHECK
+No hard-coded analytical results,PASS
+All charts generated from processed data,PASS
+Major metrics reconcile with PostgreSQL,MANUAL CHECK — VALIDATION SUMMARY NOT AVAILABLE
+Excel sanity checks completed,PASS — WORKBOOK LOADED
+No unsupported profit or margin claims,MANUAL CHECK
+Repeat customers use customer_unique_id,PASS
+2016 partial-year coverage handled correctly,MANUAL CHECK
+Anomalies investigated rather than blindly removed,MANUAL CHECK — ANOMALY RESULTS NOT AVAILABLE
+Major findings have numerical evidence,MANUAL CHECK
+Limitations documented,MANUAL CHECK
+"Charts have titles, labels and units",MANUAL CHECK
+No unnecessary debugging output,MANUAL CHECK
