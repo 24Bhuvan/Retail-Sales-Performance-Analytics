@@ -1,0 +1,11 @@
+topic,finding
+Sales,"Total item sales analysed were R$ 13,591,643.70."
+Orders,"The processed orders dataset contains 99,441 unique orders."
+Monthly Sales,"The highest monthly item sales occurred in 2017-11 at R$ 1,010,271.37."
+Category Sales,"The highest-sales product category was beleza_saude with item sales of R$ 1,258,681.34."
+Customers,"Repeat customers, defined using customer_unique_id and more than one order, represented 3.12% of unique customers."
+Payments,"The payment method with the highest total payment value was credit_card at R$ 12,542,084.19."
+Reviews,"The most common review score was 5, with 57,328 reviews."
+Delivery,The average observed delivery duration was 12.56 days based on orders with valid delivery timestamps.
+Order Status,"The most common order status was delivered with 96,478 orders."
+Relationship Analysis,The Pearson correlation between product price and freight value was 0.4142. This measures association and does not establish causality.
