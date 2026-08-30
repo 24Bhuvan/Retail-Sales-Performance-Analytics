@@ -1,0 +1,8 @@
+dataset,file,status,rows
+eda_validation_summary,eda_validation_summary.csv,SKIPPED — VARIABLE NOT AVAILABLE,
+qa_checklist,eda_qa_checklist.csv,EXPORTED,13.0
+monthly_validation,monthly_sales_validation.csv,SKIPPED — DATAFRAME EMPTY,0.0
+category_validation,category_sales_validation.csv,EXPORTED,138.0
+regional_validation,regional_sales_validation.csv,EXPORTED,27.0
+payment_validation,payment_validation.csv,EXPORTED,5.0
+seller_validation,seller_validation.csv,EXPORTED,3095.0
