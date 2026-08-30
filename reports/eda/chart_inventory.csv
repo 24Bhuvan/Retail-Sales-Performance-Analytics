@@ -1,0 +1,12 @@
+chart_file,chart_name,section,status,output_path
+01_order_value_distribution.png,Order Value Distribution,Sales Analysis,SAVED,C:\Users\Bhuvan Ummidisetti\Desktop\Project 1\Retail-Sales-Performance-Analytics\reports\eda\charts\01_order_value_distribution.png
+02_monthly_sales_trend.png,Monthly Item Sales Trend,Sales Analysis,SAVED,C:\Users\Bhuvan Ummidisetti\Desktop\Project 1\Retail-Sales-Performance-Analytics\reports\eda\charts\02_monthly_sales_trend.png
+03_category_sales.png,Top Categories by Item Sales,Sales Analysis,SAVED,C:\Users\Bhuvan Ummidisetti\Desktop\Project 1\Retail-Sales-Performance-Analytics\reports\eda\charts\03_category_sales.png
+04_product_pareto.png,Top Products by Item Sales,Product Analysis,SAVED,C:\Users\Bhuvan Ummidisetti\Desktop\Project 1\Retail-Sales-Performance-Analytics\reports\eda\charts\04_product_pareto.png
+05_customer_distribution.png,Customer Order Frequency Distribution,Customer Analysis,SAVED,C:\Users\Bhuvan Ummidisetti\Desktop\Project 1\Retail-Sales-Performance-Analytics\reports\eda\charts\05_customer_distribution.png
+06_payment_method_distribution.png,Payment Value by Payment Method,Payment Analysis,SAVED,C:\Users\Bhuvan Ummidisetti\Desktop\Project 1\Retail-Sales-Performance-Analytics\reports\eda\charts\06_payment_method_distribution.png
+07_payment_method_frequency.png,Payment Method Frequency,Payment Analysis,SAVED,C:\Users\Bhuvan Ummidisetti\Desktop\Project 1\Retail-Sales-Performance-Analytics\reports\eda\charts\07_payment_method_frequency.png
+08_review_score_distribution.png,Review Score Distribution,Review Analysis,SAVED,C:\Users\Bhuvan Ummidisetti\Desktop\Project 1\Retail-Sales-Performance-Analytics\reports\eda\charts\08_review_score_distribution.png
+09_delivery_time_distribution.png,Delivery Time Distribution,Delivery Analysis,SAVED,C:\Users\Bhuvan Ummidisetti\Desktop\Project 1\Retail-Sales-Performance-Analytics\reports\eda\charts\09_delivery_time_distribution.png
+10_order_status_distribution.png,Order Status Distribution,Order Status Analysis,SAVED,C:\Users\Bhuvan Ummidisetti\Desktop\Project 1\Retail-Sales-Performance-Analytics\reports\eda\charts\10_order_status_distribution.png
+11_freight_value_vs_price.png,Freight Value vs Product Price,Relationship Analysis,SAVED,C:\Users\Bhuvan Ummidisetti\Desktop\Project 1\Retail-Sales-Performance-Analytics\reports\eda\charts\11_freight_value_vs_price.png
