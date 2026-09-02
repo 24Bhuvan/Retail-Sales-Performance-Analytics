@@ -1,0 +1,33 @@
+﻿kpi_number,kpi_name,columns_exist,grain_compatible,double_count_risk,join_inflation_risk,reproducible,postgresql,pandas,power_bi,feasibility,implementation_control
+1,Total Revenue,Yes,Yes,Low,Low,Yes,Yes,Yes,Yes,Feasible,None
+2,Total Order Value,Yes,Yes,Low,Low,Yes,Yes,Yes,Yes,Feasible,None
+3,Average Order Value,Yes,Yes,Low,Low,Yes,Yes,Yes,Yes,Feasible,Count distinct revenue-eligible order_id; use the defined valid-order filter.
+4,Monthly Revenue,Yes,Yes,Low,Low,Yes,Yes,Yes,Yes,Feasible,Use order purchase month consistently as the time basis.
+5,Monthly Revenue Growth,Yes,Yes,Low,Low,Yes,Yes,Yes,Yes,Feasible,Use ordered monthly revenue and previous-period logic; handle missing/zero prior month.
+6,Rolling 3-Month Revenue,Yes,Yes,Low,Low,Yes,Yes,Yes,Yes,Feasible,Use a continuous monthly time series with the current month and prior two months.
+7,Total Orders,Yes,Yes,Low,Low,Yes,Yes,Yes,Yes,Feasible,Use COUNT(DISTINCT order_id) with the defined valid-order filter.
+8,Average Items per Order,Yes,Yes,Low,Low,Yes,Yes,Yes,Yes,Feasible,Use order-level items_per_order or total items divided by distinct item-eligible orders.
+9,Total Customers,Yes,Yes,Low,Low,Yes,Yes,Yes,Yes,Feasible,"Use DISTINCT customer_unique_id, not customer_id."
+10,Repeat Customer Rate,Yes,Yes,Low,Low,Yes,Yes,Yes,Yes,Feasible,Use customer_unique_id and the engineered repeat_customer_flag.
+11,Customer Lifetime Revenue,Yes,Yes,High if summed globally,Low,Yes,Yes,Yes,Yes,Feasible with rule,Do not use SUM(customer_lifetime_revenue) as a global revenue KPI; use customer grain for customer analysis.
+12,Average Customer Order Value,Yes,Yes,Medium,Low,Yes,Yes,Yes,Yes,Feasible with rule,Define explicitly whether this is average of customer-level AOVs or total revenue divided by total orders.
+13,Category Revenue,Yes,Yes,Low,Medium,Yes,Yes,Yes,Yes,Feasible with pre-aggregation,Aggregate item-level revenue before category/product joins to prevent row multiplication.
+14,Category Revenue Share,Yes,Yes,Low,Medium,Yes,Yes,Yes,Yes,Feasible with pre-aggregation,Calculate category revenue from pre-aggregated item revenue and divide by controlled total revenue.
+15,Product Revenue,Yes,Yes,Low,Low,Yes,Yes,Yes,Yes,Feasible,Aggregate item_revenue by product_id.
+16,Seller Revenue,Yes,Yes,Low,Low,Yes,Yes,Yes,Yes,Feasible,Aggregate item_revenue by seller_id.
+17,Seller Order Count,Yes,Yes,Medium,Low,Yes,Yes,Yes,Yes,Feasible,Always use COUNT(DISTINCT order_id) by seller_id because an order can contain multiple seller items.
+18,Revenue by Customer State,Yes,Yes,Low,Medium,Yes,Yes,Yes,Yes,Feasible with controlled join,Aggregate order revenue at order grain before joining customer geography; avoid item/payment row multiplication.
+19,Total Payment Value,Yes,Yes,Low,Low,Yes,Yes,Yes,Yes,Feasible,Keep payment value separate from revenue and use the order-level pre-aggregated payment value where appropriate.
+20,Payment Method Share,Yes,Yes,Low,Low,Yes,Yes,Yes,Yes,Feasible,Use payment-grain values grouped by payment_type; denominator is total payment value.
+21,Average Payment Installments,Yes,Yes,Low,Low,Yes,Yes,Yes,Yes,Feasible,Use the defined order-level installment feature for eligible payment orders.
+22,Multi-Payment Order Rate,Yes,Yes,Low,Low,Yes,Yes,Yes,Yes,Feasible,Use one row per order and multi_payment_flag; denominator is payment-eligible orders.
+23,Average Delivery Time,Yes,Yes,Low,Low,Yes,Yes,Yes,Yes,Feasible,Exclude orders with missing delivery or purchase timestamps.
+24,Average Processing Time,Yes,Yes,Low,Low,Yes,Yes,Yes,Yes,Feasible,Exclude orders with missing carrier or purchase timestamps.
+25,On-Time Delivery Rate,Yes,Yes,Low,Low,Yes,Yes,Yes,Yes,Feasible,Include only classified delivered orders with valid on_time_delivery_flag or late_delivery_flag.
+26,Late Delivery Rate,Yes,Yes,Low,Low,Yes,Yes,Yes,Yes,Feasible,Include only classified delivered orders with valid on_time_delivery_flag or late_delivery_flag.
+27,Average Delivery Difference,Yes,Yes,Low,Low,Yes,Yes,Yes,Yes,Feasible,Exclude orders missing actual or estimated delivery dates.
+28,Total Freight Value,Yes,Yes,Low,Low,Yes,Yes,Yes,Yes,Feasible,Sum freight_value at item grain; do not duplicate through joins.
+29,Freight-to-Price Ratio,Yes,Yes,Medium,Low,Yes,Yes,Yes,Yes,Feasible with aggregation rule,Do not blindly average item-level ratios if a weighted aggregate ratio is intended; define numerator and denominator aggregation.
+30,Average Review Score,Yes,Yes,Low,Low,Yes,Yes,Yes,Yes,Feasible,Use the engineered order-level review_score to avoid duplicate review records.
+31,Low Satisfaction Rate,Yes,Yes,Low,Low,Yes,Yes,Yes,Yes,Feasible,Use reviewed orders as denominator and low_review_flag at order grain.
+32,High Satisfaction Rate,Yes,Yes,Low,Low,Yes,Yes,Yes,Yes,Feasible,Use reviewed orders as denominator and high_review_flag at order grain.
