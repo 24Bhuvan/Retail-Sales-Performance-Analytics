@@ -1,0 +1,26 @@
+{
+  "execution_timestamp": "2026-09-01T08:58:57",
+  "source_dataset_row_counts": {
+    "orders_processed": 99441,
+    "order_items_processed": 112650,
+    "customers_processed": 99441,
+    "products_processed": 32951,
+    "payments_processed": 103886,
+    "reviews_processed": 99224,
+    "sellers_processed": 3095,
+    "geography_processed": 19015
+  },
+  "output_dataset_row_counts": {
+    "orders_features.csv": 99441,
+    "order_items_features.csv": 112650,
+    "customer_features.csv": 96096,
+    "monthly_features.csv": 25
+  },
+  "total_orders": 99441,
+  "total_customers": 96096,
+  "total_order_revenue": 13591643.7,
+  "total_order_value": 15843553.24,
+  "total_monthly_revenue": 13591643.7,
+  "validation_pass_count": 48,
+  "validation_fail_count": 0
+}
