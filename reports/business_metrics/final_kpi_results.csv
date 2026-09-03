@@ -1,0 +1,33 @@
+kpi_name,business_area,hierarchy,value,unit,source_dataset,calculation_tool,calculation_status
+Total Revenue,Sales,Primary,13591643.7,currency,orders_features,Python/Pandas,PASS
+Total Orders,Sales,Primary,99441.0,count,orders_features,Python/Pandas,PASS
+Average Order Value,Sales,Primary,136.68048088816482,currency/order,orders_features,Python/Pandas,PASS
+Monthly Revenue Growth,Sales,Primary,48790.24421803959,percent,monthly_features,Python/Pandas,PASS
+Total Customers,Customer,Primary,96096.0,count,customer_features,Python/Pandas,PASS
+Repeat Customer Rate,Customer,Primary,3.1187562437562435,percent,customer_features,Python/Pandas,PASS
+On-Time Delivery Rate,Delivery,Primary,91.88516686883769,percent,orders_features,Python/Pandas,PASS
+Average Delivery Time,Delivery,Primary,12.560064887677015,days,orders_features,Python/Pandas,PASS
+Average Review Score,Customer Experience,Primary,4.088879430036585,score,orders_features,Python/Pandas,PASS
+Total Order Value,Sales,Supporting,15843553.240000002,currency,orders_features,Python/Pandas,PASS
+Monthly Revenue,Sales,Supporting,566318.4874999999,currency/month,monthly_features,Python/Pandas,PASS
+Average Items per Order,Sales,Supporting,1.1417306873695092,items/order,orders_features,Python/Pandas,PASS
+Customer Lifetime Revenue,Customer,Supporting,142.44019807168308,currency/customer,customer_features,Python/Pandas,PASS
+Average Customer Order Value,Customer,Supporting,137.16346344130113,currency/order,customer_features,Python/Pandas,PASS
+Category Revenue,Product,Supporting,183670.8608108108,currency,order_items_features,Python/Pandas,PASS
+Category Revenue Share,Product,Supporting,9.260699940214003,percent,order_items_features,Python/Pandas,PASS
+Product Revenue,Product,Supporting,412.4804618979697,currency,order_items_features,Python/Pandas,PASS
+Seller Revenue,Seller,Supporting,4391.484232633279,currency,order_items_features,Python/Pandas,PASS
+Seller Order Count,Seller,Supporting,32.31340872374798,count,order_items_features,Python/Pandas,PASS
+Revenue by Customer State,Regional,Supporting,503394.2111111112,currency,orders_features,Python/Pandas,PASS
+Total Payment Value,Payment,Supporting,16008872.12,currency,orders_features,Python/Pandas,PASS
+Payment Method Share,Payment,Supporting,,percent,orders_features,Python/Pandas,PASS
+Average Payment Installments,Payment,Supporting,2.9305798588064924,installments,orders_features,Python/Pandas,PASS
+Average Processing Time,Delivery,Supporting,3.241404306345743,days,orders_features,Python/Pandas,PASS
+Late Delivery Rate,Delivery,Supporting,8.114833131162328,percent,orders_features,Python/Pandas,PASS
+Average Delivery Difference,Delivery,Supporting,-11.1761169202876,days,orders_features,Python/Pandas,PASS
+Total Freight Value,Shipping,Supporting,2251909.54,currency,order_items_features,Python/Pandas,PASS
+Low Satisfaction Rate,Customer Experience,Supporting,14.631155432590475,percent,orders_features,Python/Pandas,PASS
+High Satisfaction Rate,Customer Experience,Supporting,77.14369685729632,percent,orders_features,Python/Pandas,PASS
+Rolling 3-Month Revenue,Sales,Diagnostic,854831.33,currency,monthly_features,Python/Pandas,PASS
+Multi-Payment Order Rate,Payment,Diagnostic,2.977674979887369,percent,orders_features,Python/Pandas,PASS
+Freight-to-Price Ratio,Shipping,Diagnostic,0.3208635490797801,ratio,order_items_features,Python/Pandas,PASS
