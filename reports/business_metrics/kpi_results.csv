@@ -1,0 +1,33 @@
+kpi_name,kpi_value,kpi_hierarchy
+Total Revenue,13591643.7,Primary
+Total Orders,99441.0,Primary
+Average Order Value,136.68048088816482,Primary
+Monthly Revenue Growth,48790.24421803959,Primary
+Total Customers,96096.0,Primary
+Repeat Customer Rate,3.1187562437562435,Primary
+On-Time Delivery Rate,91.88516686883767,Primary
+Average Delivery Time,12.560064887677015,Primary
+Average Review Score,4.088879430036585,Primary
+Total Order Value,15843553.240000002,Supporting
+Monthly Revenue,566318.4874999999,Supporting
+Average Items per Order,1.1417306873695092,Supporting
+Customer Lifetime Revenue,142.44019807168308,Supporting
+Average Customer Order Value,137.16346344130113,Supporting
+Category Revenue,183670.8608108108,Supporting
+Category Revenue Share,9.260699940214003,Supporting
+Product Revenue,412.4804618979697,Supporting
+Seller Revenue,4391.484232633279,Supporting
+Seller Order Count,32.31340872374798,Supporting
+Revenue by Customer State,503394.21111111116,Supporting
+Total Payment Value,16008872.12,Supporting
+Payment Method Share,,Supporting
+Average Payment Installments,2.9305798588064924,Supporting
+Average Processing Time,3.241404306345743,Supporting
+Late Delivery Rate,8.114833131162328,Supporting
+Average Delivery Difference,-11.176116920287601,Supporting
+Total Freight Value,2251909.54,Supporting
+Low Satisfaction Rate,14.631155432590475,Supporting
+High Satisfaction Rate,77.14369685729632,Supporting
+Rolling 3-Month Revenue,854831.33,Diagnostic
+Multi-Payment Order Rate,2.977674979887369,Diagnostic
+Freight-to-Price Ratio,0.3208635490797801,Diagnostic
