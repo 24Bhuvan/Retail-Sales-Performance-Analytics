@@ -1,0 +1,6 @@
+check_name,left_value,right_value,absolute_difference,status
+Revenue: Order Revenue = Item Revenue,13591643.7,13591643.7,0.0,PASS
+Customer Revenue: Uses Order Revenue as Total Revenue,13591643.7,13591643.7,0.0,PASS
+Category Revenue = Total Revenue,13591643.699999997,13591643.7,1.862645149230957e-09,PASS
+Regional Revenue = Total Revenue,13591643.7,13591643.7,0.0,PASS
+Product Revenue = Total Revenue,13591643.700000001,13591643.7,1.862645149230957e-09,PASS
